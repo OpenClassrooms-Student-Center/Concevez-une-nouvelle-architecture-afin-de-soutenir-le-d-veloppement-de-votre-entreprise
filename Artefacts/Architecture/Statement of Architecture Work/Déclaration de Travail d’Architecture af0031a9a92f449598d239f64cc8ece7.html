@@ -1,0 +1,734 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Déclaration de Travail d’Architecture</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="af0031a9-a92f-4495-98d2-39f64cc8ece7" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🪧</span></div><h1 class="page-title">Déclaration de Travail d’Architecture</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedAt"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM4.54102 8.91211H7.99316C8.30078 8.91211 8.54004 8.67285 8.54004 8.37207V3.8877C8.54004 3.58691 8.30078 3.34766 7.99316 3.34766C7.69238 3.34766 7.45312 3.58691 7.45312 3.8877V7.83203H4.54102C4.2334 7.83203 4.00098 8.06445 4.00098 8.37207C4.00098 8.67285 4.2334 8.91211 4.54102 8.91211Z"></path></svg></span>Created</th><td><time>@May 30, 2023 11:46 AM</time></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Tags</th><td></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesStatus"><path d="M8.75488 1.02344C8.75488 0.613281 8.41309 0.264648 8.00293 0.264648C7.59277 0.264648 7.25098 0.613281 7.25098 1.02344V3.11523C7.25098 3.51855 7.59277 3.86719 8.00293 3.86719C8.41309 3.86719 8.75488 3.51855 8.75488 3.11523V1.02344ZM3.91504 5.0293C4.20215 5.31641 4.69434 5.32324 4.97461 5.03613C5.26855 4.74902 5.26855 4.25684 4.98145 3.96973L3.53906 2.52051C3.25195 2.2334 2.7666 2.21973 2.47949 2.50684C2.19238 2.79395 2.18555 3.28613 2.47266 3.57324L3.91504 5.0293ZM10.9629 4.01758C10.6826 4.30469 10.6826 4.79688 10.9697 5.08398C11.2568 5.37109 11.749 5.36426 12.0361 5.07715L13.4854 3.62793C13.7725 3.34082 13.7725 2.84863 13.4785 2.55469C13.1982 2.27441 12.7061 2.27441 12.4189 2.56152L10.9629 4.01758ZM15.0234 8.78906C15.4336 8.78906 15.7822 8.44727 15.7822 8.03711C15.7822 7.62695 15.4336 7.28516 15.0234 7.28516H12.9385C12.5283 7.28516 12.1797 7.62695 12.1797 8.03711C12.1797 8.44727 12.5283 8.78906 12.9385 8.78906H15.0234ZM0.975586 7.28516C0.56543 7.28516 0.223633 7.62695 0.223633 8.03711C0.223633 8.44727 0.56543 8.78906 0.975586 8.78906H3.07422C3.48438 8.78906 3.83301 8.44727 3.83301 8.03711C3.83301 7.62695 3.48438 7.28516 3.07422 7.28516H0.975586ZM12.0361 10.9902C11.749 10.71 11.2568 10.71 10.9629 10.9971C10.6826 11.2842 10.6826 11.7764 10.9697 12.0635L12.4258 13.5127C12.7129 13.7998 13.2051 13.793 13.4922 13.5059C13.7793 13.2256 13.7725 12.7266 13.4854 12.4395L12.0361 10.9902ZM2.52051 12.4395C2.22656 12.7266 2.22656 13.2188 2.50684 13.5059C2.79395 13.793 3.28613 13.7998 3.57324 13.5127L5.02246 12.0703C5.31641 11.7832 5.31641 11.291 5.03613 11.0039C4.74902 10.7168 4.25684 10.71 3.96973 10.9971L2.52051 12.4395ZM8.75488 12.9658C8.75488 12.5557 8.41309 12.207 8.00293 12.207C7.59277 12.207 7.25098 12.5557 7.25098 12.9658V15.0576C7.25098 15.4609 7.59277 15.8096 8.00293 15.8096C8.41309 15.8096 8.75488 15.4609 8.75488 15.0576V12.9658Z"></path></svg></span>Status</th><td><span class="status-value select-value-color-yellow"><div class="status-dot status-dot-color-yellow"></div>In progress</span></td></tr></tbody></table></header><div class="page-body"><table id="44a3676b-e430-4ca2-98fc-b0956e661f1b" class="simple-table"><tbody><tr id="75abb68e-4be1-44d9-b46e-8b4d0bada25b"><th id="q}Ug" class="simple-table-header-color simple-table-header" style="width:211px"><strong>Projet </strong></th><td id="_|XD" class="" style="width:450px">Nouvelle Architecture d’Entreprise</td></tr><tr id="13614a0d-9e32-4537-a43b-971399615f49"><th id="q}Ug" class="simple-table-header-color simple-table-header" style="width:211px"><strong>Client </strong></th><td id="_|XD" class="" style="width:450px">Foosus</td></tr><tr id="a79d6586-8194-41f1-b7c4-d4150714ccbb"><th id="q}Ug" class="simple-table-header-color simple-table-header" style="width:211px"><strong><em>Titre </em></strong></th><td id="_|XD" class="" style="width:450px">Spécification des Conditions requises pour l’Architecture</td></tr><tr id="2cc14dc8-428d-4687-9d74-c7e64eb6bc1a"><th id="q}Ug" class="simple-table-header-color simple-table-header" style="width:211px">Auteurs </th><td id="_|XD" class="" style="width:450px">Yoann Talon</td></tr><tr id="e6e3c437-0742-41a6-8f90-6622711f456b"><th id="q}Ug" class="simple-table-header-color simple-table-header" style="width:211px"><strong><em>N° de Version du Document</em></strong></th><td id="_|XD" class="" style="width:450px">0.1</td></tr><tr id="304b52c5-c5f8-4fc0-8f2d-00a7d2d89999"><th id="q}Ug" class="simple-table-header-color simple-table-header" style="width:211px"><strong><em>Date de Version du Document</em></strong></th><td id="_|XD" class="" style="width:450px">06/2023</td></tr><tr id="35464587-0224-45bc-8dc6-7021f55cfbac"><th id="q}Ug" class="simple-table-header-color simple-table-header" style="width:211px"><strong>Préparé par</strong> </th><td id="_|XD" class="" style="width:450px">Yoann Talon</td></tr><tr id="80a73ecf-9b53-4ec7-b118-87044120d5b3"><th id="q}Ug" class="simple-table-header-color simple-table-header" style="width:211px"><strong><em>Revu par</em></strong></th><td id="_|XD" class="" style="width:450px">Anthony Graignic</td></tr><tr id="82b32c97-3fba-41c5-8970-1788dda8c09b"><th id="q}Ug" class="simple-table-header-color simple-table-header" style="width:211px"><strong><em>Date de Révision</em></strong></th><td id="_|XD" class="" style="width:450px">19/08/2023</td></tr><tr id="89231873-73a0-49c9-b4c6-4737713596bc"><th id="q}Ug" class="simple-table-header-color simple-table-header" style="width:211px">Date de rendu :</th><td id="_|XD" class="" style="width:450px">13/07/2023</td></tr><tr id="22fcff8c-13ed-412b-9601-0f76124d144e"><th id="q}Ug" class="simple-table-header-color simple-table-header" style="width:211px">Types d’action :</th><td id="_|XD" class="" style="width:450px"></td></tr><tr id="05f02e2e-1449-4812-a584-5fb5fca7e3ff"><th id="q}Ug" class="simple-table-header-color simple-table-header" style="width:211px">Historique de versions du document</th><td id="_|XD" class="" style="width:450px"></td></tr></tbody></table><hr id="01c1ec4f-d758-4dc9-9b4f-52c87ad15b2c"/><nav id="256880cc-da84-4bd0-bb26-73c438420725" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ed37b4ce-cba5-437e-8b43-013f35fabfef"><strong>Objet de ce document</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#b4ea28e5-e481-4eb6-91b8-547239d21cb1"><strong>Déclaration de travail d’architecture</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#85788f0d-bd63-4a57-bd4e-a4e1f93647e5">Requête du projet et contexte</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e7180ef1-6a6f-47e0-b3c3-dbc7013b8bc7">Description du projet et périmètre</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#3805ad44-3e68-4bea-bd63-56f52dbe3337">Vue d’ensemble</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#142c6eb2-6cb4-4e1f-a189-ff5f5bfa9491">Alignement stratégique</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a07c15a7-62cb-43c6-b4fa-24f263deaafa"><strong>Objectifs et périmètre</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#634425c4-375a-4c76-b758-40bebfe80aac">Objectifs </a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#fa4c4c0f-315c-4a0f-b852-605af7cbef78">Périmètre</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#3573e139-ddf6-453e-a45b-21e7b46d7668"><strong>Parties prenantes, préoccupations, et visions</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#17ece9a2-c370-446e-8cce-7054d85d1185"><strong>Approche managériale</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f29e6767-5329-4a57-a90a-3072e0c7fc1f"><strong>Procédures de changement de périmètre </strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#67a87a6c-5f69-4601-af07-3daf598ca3e8">Qui demande et/ou décide du changement de périmètre ?</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#92248990-6f46-4824-99c4-d666c79c4377">Quel sont les questions à se poser avant d’acter le changement de périmètre ?</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#bc4f97c4-b699-477e-af88-867f74061a7e">Comment est pris en compte le nouveau périmètre ?</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#8701d167-3332-4223-a865-a52de4dda4fe">Que se passe-t-il après acceptation ?</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#db81c80c-b3f9-4113-ac96-aa2661e02d68"><strong>Rôles et responsabilités </strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#fabf0b0c-7e14-4a1e-81bf-16d9e2113813">Structure de gouvernance</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1ec10739-d651-4227-a982-9e09b6d28718"><strong>Process du projet</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#85a9a45c-9aca-4c6b-aed8-98694ddd69ef">Réunions et échanges</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#599edc29-b427-408f-8a7a-8f19bce22a75">Organisation des informations : </a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#95ce60fd-1c72-482c-b257-ff2be85094fc"><strong>Rôles et responsabilités (RACI)</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#d9d97e32-e287-40f6-bc17-9b4225def6d7"><strong>Approche architecturale</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1610a175-1954-462e-9715-4ee516d17a3d">Process d’architecture</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#eb962592-94f0-40e8-949b-6d530ca94cec"><strong>Contenu de l’architecture</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#4fc16bca-a4ce-40a2-9931-6936ccbedf76"><strong>Méthodologies pertinentes et normes de l’industrie</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#d207a86f-ff50-487b-a5b7-3d4ba72d92f4"><strong>Plan de travail</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#055a18f9-fb1f-41b4-84ae-ba0308eb6f2e">Spécification et vision de la nouvelle architecture</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#3e8da1b6-435a-41a8-8b36-23b73d49828f">Contrats d’architecture avec les parties prenantes</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#74e9840d-0559-449e-b756-ace2ecb02979">Plan de communication</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#17bdfba2-27bf-47e7-8019-3f519bbec39d">Évènements</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#c2f56dab-6b23-49dd-a8b7-e7db7e332d01">Canaux</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#016cb0b4-c2e0-4dd6-9a13-e326bce94782">Formats</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#c86df06f-c93d-496c-9568-f6f9417cec87">Contenu</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d2f363df-3211-4c02-948f-a52b90222220"><strong>Durée et effort</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#9fffd34f-739d-49ed-8931-cd2512fb7dec">Collaboration</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a3b69b29-c4da-4b5a-8d30-89d754f904c5">Rythme de communication</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23c04441-77bd-411e-80ab-7fa26df562e8">Plan et calendrier du projet</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#098a418b-bf3c-4c0d-b32f-33f59cc7e05a"><strong>Risques et facteurs de réduction</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ada0b82d-e69d-4c26-9354-7beb492a8074">Analyse de risque (Classification)</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2178d4bf-6d20-4553-9d4c-a4f07635201a"><strong>Hypothèses</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#0924be3d-8ccd-419b-8480-1ef7d1060ae6"><strong>Critères d’acceptation et procédures</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#0914fb32-e5e3-441a-b400-683755b3e1ed">Métriques et KPI de l’État Cible de l’Architecture</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#29c1406a-154a-42d6-bca4-2a71cb221dcf"><strong>Procédure d’acceptation</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#57b6ca92-19a5-4354-a45b-95098757414e"><strong>Approbations signées</strong></a></div></nav><hr id="057e40e6-a9f7-43c1-8f42-b2ade694877f"/><h2 id="ed37b4ce-cba5-437e-8b43-013f35fabfef" class=""><strong>Objet de ce document</strong></h2><p id="0eb0b5aa-b5a5-42b2-83de-cc3c4eeb49b0" class="">La Déclaration de travail d’architecture définit le périmètre et l’approche qui seront utilisés pour mener à bien un projet d’architecture. </p><p id="3e9030a3-8848-48d5-a8ce-d0215f780642" class="">La Déclaration de travail d’architecture constitue habituellement le document qui permet de mesurer la réussite de l’exécution du projet d’architecture et peut former la base de l’accord contractuel entre le fournisseur et le consommateur de services d’architecture. </p><p id="69555c78-0a85-4881-98fe-911b0c0ed394" class="">En général, toutes les informations de ce document doivent se situer à un haut niveau.</p><h2 id="b4ea28e5-e481-4eb6-91b8-547239d21cb1" class=""><strong>Déclaration de travail d’architecture</strong></h2><h3 id="85788f0d-bd63-4a57-bd4e-a4e1f93647e5" class="">Requête du projet et contexte</h3><div><p id="5417b4ec-a44b-4f9a-8bc7-15eeb340cb75" class="">La plateforme Foosus actuelle ne peut <strong>plus soutenir la croissance et l’expansion</strong> de l’entreprise avec <strong>son architecture actuelle</strong>. </p><p id="a622fdb3-4bdb-4e9b-a0bf-12b1c9397335" class="">Ses <strong>analyses commerciales</strong> ont montré que <strong>les clients souhaitent acheter local</strong> et être <strong>mis en relation</strong> avec des <strong>producteurs près de chez eux</strong>. </p><p id="c7e549e5-d396-4e95-9c35-4db327c7b3be" class="">L’entreprise souhaite <strong>créer une nouvelle plateforme</strong> qui <strong>soutiendra sa croissance</strong> et fournira à leurs <strong>clients une nouvelle expérience</strong>.</p></div><h3 id="e7180ef1-6a6f-47e0-b3c3-dbc7013b8bc7" class="">Description du projet et périmètre</h3><table id="3ea8d75c-621f-415a-956d-857b1423fb62" class="simple-table"><tbody><tr id="586ad8d0-efb6-45f9-8d09-c4030165e1e8"><th id="VOJz" class="simple-table-header-color simple-table-header"><strong>Quoi</strong></th><td id="`HzZ" class="" style="width:525px">Analyse et conception d’un nouvelle architecture
+Rédaction de livrable et mise à jour d’un référentiel d’architecture</td></tr><tr id="667bd480-10a7-48d2-8f51-bd0dee0ab24e"><th id="VOJz" class="simple-table-header-color simple-table-header"><strong>Qui</strong></th><td id="`HzZ" class="" style="width:525px">Yoann Talon,<strong> Architecte d’entreprise; </strong>Daniel Anthony, <strong>Directeur Produits</strong>, Foosus; Natasha Jarson, <strong>Directrice Informatique</strong>, Foosus; Jack Harkness, <strong>Responsable des opérations</strong>, Foosus; Ash Callum, <strong>PDG</strong>, Foosus; <strong>Equipes de développement, Marketing, Produit </strong>Foosus.</td></tr><tr id="8e51cd73-16bf-418e-b184-86e379605ce7"><th id="VOJz" class="simple-table-header-color simple-table-header"><strong>Où</strong></th><td id="`HzZ" class="" style="width:525px">Travaux et rédaction en <strong>distanciel</strong>.</td></tr><tr id="504a110e-7f35-453d-b960-736e7b6d6139"><th id="VOJz" class="simple-table-header-color simple-table-header"><strong>Quand</strong></th><td id="`HzZ" class="" style="width:525px">La phase 1 se déroulera sur <strong>2 trimestres</strong></td></tr><tr id="c934f977-98fe-423f-a440-5dba8f99733a"><th id="VOJz" class="simple-table-header-color simple-table-header"><strong>Comment</strong></th><td id="`HzZ" class="" style="width:525px">Fourniture de livrables à intervalle régulier.</td></tr><tr id="65380917-29d0-4364-934f-7434682992f3"><th id="VOJz" class="simple-table-header-color simple-table-header"><strong>Pourquoi</strong></th><td id="`HzZ" class="" style="width:525px">Soutenir la croissance et offrir une expérience utilisateur au plus proche de chez lui.</td></tr></tbody></table><h3 id="3805ad44-3e68-4bea-bd63-56f52dbe3337" class="">Vue d’ensemble</h3><p id="f1292699-c551-46dc-b091-3ce1453bc3d7" class="">Foosus est une <strong>jeune entreprise</strong> âgée de 3 ans dans le <strong>secteur de l’alimentation durable</strong>. Leur objectif est de <strong>soutenir une alimentation écologique, durable et locale</strong> en mettant en contact les consommateurs avec les producteurs et artisans locaux.</p><figure id="a97a38f9-f503-4362-afaf-c839b1057055" class="image"><a href="De%CC%81claration%20de%20Travail%20d%E2%80%99Architecture%20af0031a9a92f449598d239f64cc8ece7/Foosus_Overview_(1).png"><img style="width:672px" src="De%CC%81claration%20de%20Travail%20d%E2%80%99Architecture%20af0031a9a92f449598d239f64cc8ece7/Foosus_Overview_(1).png"/></a></figure><p id="5b71a769-4d35-4e83-950d-c192772927f4" class="">L’entreprise souhaite construire <strong>une solution géo ciblée</strong> avec une<strong> nouvelle architecture</strong>. Les choix historiques de Foosus ont engendré une <strong>dette technique</strong> et un <strong>manque de cohérence</strong> dans leur architecture initiale, qui impactent déjà le développement de nouvelles fonctionnalités et la qualité de service.</p><p id="0fb80a93-e579-4472-afba-2947fb295dac" class="">Aujourd’hui, Foosus souhaite investir dans une nouvelle fonction d’architecture. De manière à collaborer avec les équipes dans l’élaboration d’une nouvelle architecture, modulable et résiliente, pour leur solution principale et celles qui suivront.</p><h3 id="142c6eb2-6cb4-4e1f-a189-ff5f5bfa9491" class="">Alignement stratégique</h3><p id="ff813fb2-4e48-4957-b260-bb968b1493d8" class="">L’alignement stratégique est une démarche visant à faire coïncider la stratégie des systèmes d’informations sur la ou les stratégies métiers de l’entreprise.  </p><p id="33e4b8f9-d116-4f72-a591-e319448f9d42" class="">Cette démarche a pour finalité de renforcer la <mark class="highlight-teal"><strong>valeur d’usage</strong></mark> du système d’information et de faire de celui-ci un atout pour l’entreprise.</p><p id="7fc9558a-d59a-4780-bac5-967f49c7eb3d" class="">L’alignement de la stratégie d’entreprise et de la stratégie du système d’information repose sur deux conditions préalables : </p><ul id="1c410c0d-0f2a-49c8-be5e-b3242b070061" class="bulleted-list"><li style="list-style-type:disc">Compréhension et Intégration de la stratégie d’entreprise par la fonction Système d’Information dans son ensemble.</li></ul><ul id="dbba3bdc-7193-489e-bc53-664379a48d5c" class="bulleted-list"><li style="list-style-type:disc">Prise en compte des contraintes et des opportunités de l’informatique dans la stratégie de l’entreprise</li></ul><p id="e141bb95-da86-4199-96a7-3087bc59a628" class="">Le projet de nouvelle architecture s’inscrit alors dans l’alignement de la stratégie du SI avec la stratégie Business de Foosus, visant à créer la première plateforme pour l’achat de biens alimentaires locaux.</p><div><h2 id="a07c15a7-62cb-43c6-b4fa-24f263deaafa" class=""><strong>Objectifs et périmètre</strong></h2><h3 id="634425c4-375a-4c76-b758-40bebfe80aac" class="">Objectifs </h3><p id="d763f899-05ec-4d6a-9c2d-670276cdac8e" class="">Les objectifs business de ce travail d’architecture sont les suivants :</p><table id="88a91031-f395-4e46-9480-0b77d0106c9c" class="simple-table"><thead class="simple-table-header"><tr id="091f061c-11d3-455c-b5dd-a6580a3fa7d2"><th id="^vqr" class="block-color-teal_background simple-table-header" style="width:349px">Objectif Business</th><th id="NVP_" class="block-color-teal_background simple-table-header" style="width:349px">Notes</th></tr></thead><tbody><tr id="dd715fa9-53ff-4df3-ba10-d3351c3609bc"><th id="^vqr" class="simple-table-header-color simple-table-header" style="width:349px">Tirer partie de la géolocalisation pour relier les fournisseurs locaux et les consommateurs</th><td id="NVP_" class="" style="width:349px">Les études de marché et les analyses commerciales montrent que nos clients souhaitent acheter local et soutiennent les producteurs locaux. Proposer des produits disponibles près des lieux de résidence.</td></tr><tr id="5070de03-01f9-41ee-a792-52c3b9315319"><th id="^vqr" class="simple-table-header-color simple-table-header" style="width:349px">Proposer une architecture évolutive, soutenant la croissance de l’entreprise.</th><td id="NVP_" class="" style="width:349px">Déployer les services sur diverses régions, dans des villes et des pays donnés. Etre doté de nouvelles fonctionnalités au fil du temps.</td></tr><tr id="6c9d49dc-27e4-4359-8914-8b025a0006ff"><th id="^vqr" class="simple-table-header-color simple-table-header" style="width:349px">Eviter toute interruption de service nuisant à la disponibilité de la plateforme pour les utilisateurs, impactant le Chiffre d’Affaire.</th><td id="NVP_" class="" style="width:349px">Nous avons constaté des pannes causées par l&#x27;incapacité de notre système logiciel d&#x27;absorber les pics d&#x27;utilisation</td></tr><tr id="04c4b6e4-a590-490a-956a-969683e95f66"><th id="^vqr" class="simple-table-header-color simple-table-header" style="width:349px">Prendre en charge divers types d’utilisateur (Consommateurs, Fournisseurs locaux, Personnel Back-Office Foosus) avec fonctionnalités et services spécifiques pour chaque, au sein d’une même plateforme.</th><td id="NVP_" class="" style="width:349px">Une seule portée d’entrée pour n’importe quel utilisateur.</td></tr><tr id="1b949bd3-4317-4739-9f7d-541178301ce3"><th id="^vqr" class="simple-table-header-color simple-table-header" style="width:349px">Proposer une solution multi-plateforme (Web et mobile) pour les utilisateurs</th><td id="NVP_" class="" style="width:349px">Responsive Web Design</td></tr><tr id="daf4a63e-068a-43ba-a306-8e4c24c9e05f"><th id="^vqr" class="simple-table-header-color simple-table-header" style="width:349px">Fournir une alternative automatisée pour mettre à jour l’inventaire des produits alimentaires.</th><td id="NVP_" class="" style="width:349px">Concevoir une alternative au traitement manuel de l’inventaire de produits alimentaires</td></tr><tr id="4fdaf805-bff8-42b3-9b4a-9760d129d726"><th id="^vqr" class="simple-table-header-color simple-table-header" style="width:349px">Réaménager la chaîne de valeur, en optimisant les délais d’approvisionnement et de livraison</th><td id="NVP_" class="" style="width:349px">Diminuer le Lead time</td></tr></tbody></table></div><h3 id="fa4c4c0f-315c-4a0f-b852-605af7cbef78" class="">Périmètre</h3><p id="e58fb44c-22de-44af-bc0a-7774e4e9682b" class="">Le périmètre de la phase 1 du projet comprend : </p><ul id="9b95761d-1e22-47bd-91ce-43bf41db09ac" class="bulleted-list"><li style="list-style-type:disc">L’<strong>analyse de la vision d’entreprise</strong> pour la nouvelle architecture</li></ul><ul id="1938c59e-807e-442b-896d-0e05389fa5bc" class="bulleted-list"><li style="list-style-type:disc"><strong>Conception et Définition </strong>de la <strong>nouvelle architecture d’entreprise</strong></li></ul><ul id="60e1cd11-5587-4239-8885-0cacc12fea65" class="bulleted-list"><li style="list-style-type:disc"><strong>Elaboration d’un projet de suivi</strong> pour le développement d’un prototype d’architecture</li></ul><ul id="59e5ec5c-9b84-4878-bae0-494a23be0280" class="bulleted-list"><li style="list-style-type:disc"><strong>Mise à jour du référentiel d’architecture</strong> avec les choix et compromis décidés, ainsi que tous les documents documentant l’architecture cible.</li></ul><p id="93778a22-e328-4748-9791-26b9ce8dbed5" class="">La <strong>phase 1</strong> du projet a pour objectif de définir une nouvelle architecture soutenant les objectifs Business. Elle ne comprend pas la réalisation, PoC, MVP de la nouvelle architecture.  La mise en œuvre de l’architecture cible sera l’objectif de la phase 2 du projet.</p><h2 id="3573e139-ddf6-453e-a45b-21e7b46d7668" class=""><strong>Parties prenantes, préoccupations, et visions</strong></h2><div><p id="206ae683-afbc-4e13-8b97-2230fd74de66" class="">Le tableau suivant montre les parties prenantes qui utilisent ce document, leurs préoccupations, et la façon dont le travail d’architecture répondra à ces préoccupations par l’expression de plusieurs visions.</p><table id="17620f21-d2f7-4ca1-91cd-4863dddc0113" class="simple-table"><thead class="simple-table-header"><tr id="e0596e02-ca30-4eb4-b61d-5fe6ac12a224"><th id="ydQ?" class="block-color-teal_background simple-table-header" style="width:232.66666666666666px">Partie prenante</th><th id="n&gt;Z{" class="block-color-teal_background simple-table-header" style="width:232.66666666666666px">Préoccupation</th><th id="Qo}R" class="block-color-teal_background simple-table-header" style="width:232.66250610351562px">Vision</th></tr></thead><tbody><tr id="352666f3-3701-4313-bdfd-bccc2357b61b"><th id="ydQ?" class="simple-table-header-color simple-table-header" style="width:232.66666666666666px">CEO - Board Members</th><td id="n&gt;Z{" class="" style="width:232.66666666666666px">La nouvelle architecture doit assurer le développement économique de l’entreprise.</td><td id="Qo}R" class="" style="width:232.66250610351562px">Faire rayonner Foosus au niveau départemental, régional, national, international.</td></tr><tr id="cdb2e4f2-f5c5-478f-9b89-46bd89fb4136"><th id="ydQ?" class="simple-table-header-color simple-table-header" style="width:232.66666666666666px">Engineering Product Team</th><td id="n&gt;Z{" class="" style="width:232.66666666666666px">Concevoir et intégrer de nouvelles fonctionnalités utilisables et réactives.</td><td id="Qo}R" class="" style="width:232.66250610351562px">Offrir une expérience utilisateur de premier plan.</td></tr><tr id="8a7ea906-b2b7-4f6b-9e74-af08a44b6e8c"><th id="ydQ?" class="simple-table-header-color simple-table-header" style="width:232.66666666666666px">Engineering (Development) Team </th><td id="n&gt;Z{" class="" style="width:232.66666666666666px">Concevoir et développer les nouvelles fonctionnalité, en augmentant la vélocité des livraison.</td><td id="Qo}R" class="" style="width:232.66250610351562px">Libérer la créativité et l’expérience de développement. Donner le meilleur d’eux-mêmes.</td></tr><tr id="229afa8b-c16d-4f69-a524-6847edc25c28"><th id="ydQ?" class="simple-table-header-color simple-table-header" style="width:232.66666666666666px">Engineering (Operations) Team </th><td id="n&gt;Z{" class="" style="width:232.66666666666666px">Déployer et maintenir une plateforme évolutive, résiliente et sécurisée.</td><td id="Qo}R" class="" style="width:232.66250610351562px">Assurer la sécurité des services de Foosus</td></tr><tr id="5dd11879-b5b1-4388-a883-4b23c42b988e"><th id="ydQ?" class="simple-table-header-color simple-table-header" style="width:232.66666666666666px">Marketing Team</th><td id="n&gt;Z{" class="" style="width:232.66666666666666px">Déployer et maintenir une architecture évolutive </td><td id="Qo}R" class="" style="width:232.66250610351562px">Faire franchir le million d’utilisateurs inscrits à notre base client.</td></tr><tr id="87d2ee84-8c08-423d-bed7-44178749817e"><th id="ydQ?" class="simple-table-header-color simple-table-header" style="width:232.66666666666666px">Financial Team</th><td id="n&gt;Z{" class="" style="width:232.66666666666666px">Augmenter la rentabilité de Foosus</td><td id="Qo}R" class="" style="width:232.66250610351562px">La nouvelle architecture soutiendra la croissance économique de Foosus</td></tr></tbody></table></div><h2 id="17ece9a2-c370-446e-8cce-7054d85d1185" class=""><strong>Approche managériale</strong></h2><p id="b211b17c-e232-4ebe-ba55-747a5a1a4062" class="">L’approche managériale du projet s’appuie sur le Lean Management, mettant en avant 5 principes : </p><ol type="1" id="df3d5509-3d9e-4732-a2e4-fa4590c1a773" class="numbered-list" start="1"><li><strong>Identifier la valeur</strong> : Offrir un produit et un service pour lequel nos clients sont prêt à payer. Il est nécessaire pour chaque partie, comme pour nos utilisateurs, d’identifier clairement la valeur ajoutées de nos produits.</li></ol><ol type="1" id="a5635766-27aa-42d2-8366-00cceef517ef" class="numbered-list" start="2"><li><strong>Cartographier la chaîne de valeur</strong> : En fournissant une visualisation claire des processus liés à la livraison du produit final, nous identifierons rapidement les étapes de nos processus qui ne fournissent pas de valeur ajoutée et de les éliminer. </li></ol><ol type="1" id="a84693d8-46ae-4ceb-a0a7-b03d32503dc3" class="numbered-list" start="3"><li><strong>Créer un flux de travail continu</strong> : La réalisation de la nouvelle architecture impliquera un travail d’équipes inter fonctionnelles. C’est pourquoi nous devons nous assurer que chaque équipe dispose d’activités et tâches proportionnées ainsi que d’une bonne visualisation des flux de travail à réaliser. L’objectif est d’éviter des goulots d’étranglement, des interruptions ou des mal-être chez nos collaborateurs.</li></ol><ol type="1" id="2eb218cc-9ecc-45fc-836c-83c8e4bdd09d" class="numbered-list" start="4"><li><strong>Créer un système de traction</strong> : Pour que nos équipes puissent bénéficier d’un flux de travail continu, livrer rapidement et avec moins d’efforts, il en va aux responsables et architectes de définir la demande. Ainsi, seules les ressources nécessaires sont mobilisées, </li></ol><ol type="1" id="ff7ba315-cef4-4d2f-814a-32462a75c9d3" class="numbered-list" start="5"><li><strong>L’amélioration continue</strong> : Notre système n’étant pas infaillibles, Nous devons nous assurer que nos collaborateurs sont impliqués dans l’amélioration continue des processus de réalisation, mais également de leurs savoir-faire.</li></ol><p id="7a9cc04e-bbec-46b5-b824-428b81047690" class="">L’approche managériale s’appuient également sur des valeurs et principes (ainsi que des pratiques) empruntés à <a href="https://agilemanifesto.org/"><strong>l’Agile</strong></a>, au <a href="https://manifesto.softwarecraftsmanship.org/"><strong>Craftmanship</strong></a>, à l’<a href="https://www.altexsoft.com/blog/business/extreme-programming-values-principles-and-practices/"><strong>Extreme Programming</strong></a>, ainsi qu’au <a href="https://sites.google.com/a/jezhumble.net/devops-manifesto/"><strong>DevOps</strong></a>.</p><p id="c01bc861-f0ac-4c61-9828-052e820dfd3f" class="">Notre organisation du travail s’articule autour d’équipes de 4 à 5 personnes dites “Squad” autonomes, effectuant des points de suivis réguliers sur les travaux en cours à délivrer avec les responsables et chefs de projet.</p><p id="fcee8170-15aa-4d84-b665-43dcb262a4b3" class="">L’approche agile est importante dans nos projets pour itérer rapidement sur des activités à réaliser sans devoir retravailler toutes les exigences du projet, comme dans un cycle de développement en V ou en cascade.</p><h2 id="f29e6767-5329-4a57-a90a-3072e0c7fc1f" class=""><strong>Procédures de changement de périmètre </strong></h2><div><blockquote id="51ad58ba-821a-4cf3-b751-a05824cab084" class="">Le changement de périmètre implique une démarche globale et systémique en termes de gestion de projet et de gestion du changement.</blockquote><h3 id="67a87a6c-5f69-4601-af07-3daf598ca3e8" class="">Qui demande et/ou décide du changement de périmètre ?</h3><ul id="eb3b48de-5e6a-416f-bd0e-5c70434656d9" class="bulleted-list"><li style="list-style-type:disc">Demande d’un membre de la direction.</li></ul><ul id="da8f5f85-2d74-4d37-a58a-ffb66866ff5f" class="bulleted-list"><li style="list-style-type:disc">Demande unilatéral du CTO.</li></ul><ul id="56026174-cf34-47fb-8685-6a6893d157ea" class="bulleted-list"><li style="list-style-type:disc">Demande/suggestion d’un collaborateur approuvé par un membre de la direction.</li></ul><h3 id="92248990-6f46-4824-99c4-d666c79c4377" class="">Quel sont les questions à se poser avant d’acter le changement de périmètre ?</h3><ol type="1" id="2b20ff1e-ab05-4a79-8713-e3fa3ff23014" class="numbered-list" start="1"><li>Est-ce que le nouveau périmètre répond aux objectifs stratégiques de l’entreprise ?</li></ol><ol type="1" id="014c46cb-af17-457e-b7e4-672bfbac8a03" class="numbered-list" start="2"><li>Est-ce que le budget pour ce changement de périmètre a été calculé ?</li></ol><ol type="1" id="9119e05f-b79a-4e91-a64d-b7afdc331a50" class="numbered-list" start="3"><li>Est-ce que les objectifs business fournis dans la demande préliminaire (Brief Business) seront toujours atteints avec ce changement de périmètre ? </li></ol><h3 id="bc4f97c4-b699-477e-af88-867f74061a7e" class="">Comment est pris en compte le nouveau périmètre ?</h3><ol type="1" id="47d8b0ec-7ee7-4098-9301-5adde842b790" class="numbered-list" start="1"><li>Mettre à jour les documents du référentiel d’architecture pour prendre en compte le nouveau périmètre :<ol type="a" id="06f08505-279c-469f-bbc5-bf4147c0d321" class="numbered-list" start="1"><li>Ajouter les éléments liés au nouveau périmètre : Acteurs, exigences, risques, hypothèses.</li></ol><ol type="a" id="4278ae07-4012-4f89-975f-6b19237481d3" class="numbered-list" start="2"><li>Supprimer les éléments non pris en compte dans le nouveau périmètre.</li></ol><ol type="a" id="ec824ee1-8cc8-4c8a-8bab-874314ba8d16" class="numbered-list" start="3"><li>Redéfinir le planning du projet.</li></ol></li></ol><ol type="1" id="c9c396e6-10b0-42d6-8bb6-30a07f00df37" class="numbered-list" start="2"><li>Nouvelle phase de présentation, d’acceptation et de signature des documents.</li></ol><h3 id="8701d167-3332-4223-a865-a52de4dda4fe" class="">Que se passe-t-il après acceptation ?</h3><ul id="2597b504-b777-49f6-a409-98b4414706a9" class="bulleted-list"><li style="list-style-type:disc">Communications aux équipes des changements qui impacteront leurs activités</li></ul><ul id="56557c8f-b98b-45b9-97c8-a7ffadfa9a8b" class="bulleted-list"><li style="list-style-type:disc">Mise à jour des activités, rôles et responsabilités des acteurs pour correspondre au nouveau périmètre</li></ul><ul id="edbe2ae6-6661-47bf-84d1-1a55a87146f6" class="bulleted-list"><li style="list-style-type:disc">Mise à jour du planning de projet</li></ul></div><h2 id="db81c80c-b3f9-4113-ac96-aa2661e02d68" class=""><strong>Rôles et responsabilités </strong></h2><h3 id="fabf0b0c-7e14-4a1e-81bf-16d9e2113813" class="">Structure de gouvernance</h3><p id="9d94395a-d0f4-44ca-b907-96e270aadfaa" class="">Le schéma ci-dessous modélise la structure de gouvernance au sein de Foosus.</p><figure id="f4ecd55f-ecf2-439b-87bc-133a71cf0bd9" class="image"><a href="De%CC%81claration%20de%20Travail%20d%E2%80%99Architecture%20af0031a9a92f449598d239f64cc8ece7/org-chart.png"><img style="width:1056px" src="De%CC%81claration%20de%20Travail%20d%E2%80%99Architecture%20af0031a9a92f449598d239f64cc8ece7/org-chart.png"/></a><figcaption>Diagramme d’organisation de la société Foosus</figcaption></figure><h2 id="1ec10739-d651-4227-a982-9e09b6d28718" class=""><strong>Process du projet</strong></h2><h3 id="85a9a45c-9aca-4c6b-aed8-98694ddd69ef" class="">Réunions et échanges</h3><ul id="a6450139-2f2b-44b4-8004-6be3c0695868" class="bulleted-list"><li style="list-style-type:disc">Réunion de lancement, afin d’aligner les équipes sur les buts, objectifs et également les activités les concernant.</li></ul><ul id="72d33945-145a-4a33-ac2e-bf16f0bc5a01" class="bulleted-list"><li style="list-style-type:disc">Réunion ponctuelle de suivi de projet (1 à 2 par semaine) avec les différentes squads et leurs activités dans le projet.</li></ul><ul id="dabbfb57-b04e-4ba5-8df4-e8f12d995923" class="bulleted-list"><li style="list-style-type:disc">Réunion journalière des squad pour échange autour des activités de la veille, de blocage ou difficultés rencontrées et des tâches de la journée à venir, ainsi que des échanges à prévoir entre eux.</li></ul><ul id="7d4ce364-872c-4b1d-81f2-6371ff6c27a1" class="bulleted-list"><li style="list-style-type:disc">Réunion hebdomadaire du comité de pilotage (C-Level, Architecture d’entreprise) pour suivre l’évolution du projet et vérifier que les contraintes budgétaires et temporelles sont respectées.</li></ul><ul id="5f9878c1-08be-449d-83a6-f8cd6733fe52" class="bulleted-list"><li style="list-style-type:disc">Des réunions informelles permettront aux différentes équipes de synchroniser leurs travaux , fournir des retours rapides.</li></ul><h3 id="599edc29-b427-408f-8a7a-8f19bce22a75" class="">Organisation des informations : </h3><ul id="336d3191-83ed-440b-b98a-4b09d622b18f" class="bulleted-list"><li style="list-style-type:disc">Progiciel ERP de gestion de projet pour formaliser et suivre au plus près l’avancement du projet. Outil de gestion de projet orienté technique possiblement déjà intégré dans les forges logicielles.</li></ul><ul id="31a53518-0f65-4bba-9b91-b26447ac9805" class="bulleted-list"><li style="list-style-type:disc">Outil de documentation commun pour les équipes :<ul id="44ca2563-7d8c-40ed-b833-c829bb8968fd" class="bulleted-list"><li style="list-style-type:circle">Technique : utilisation de la forge logicielle pour versionner la documentation technique</li></ul><ul id="1a04c123-1da6-4f8b-ac93-2cb0d18128d6" class="bulleted-list"><li style="list-style-type:circle">Autre : Utilisation de l’ERP (fonctionnalités de documentation) pour formaliser les fonctionnalités, exigences métiers, comptes-rendus de réunion, etc.</li></ul></li></ul><ul id="9b121360-2540-460e-b8f8-974d39fc4abe" class="bulleted-list"><li style="list-style-type:disc">Logiciel de conception d’interface pour formaliser entre les équipes les éléments graphiques et les flows utilisateurs (interactions).</li></ul><ul id="c825ce1c-273b-43a3-82cc-47243a25df29" class="bulleted-list"><li style="list-style-type:disc">Forge logicielle où sera versionnée le code source de la nouvelle architecture, et le référentiel d’architecture.</li></ul><ul id="6abcb547-4d10-4a80-a099-3c687726949b" class="bulleted-list"><li style="list-style-type:disc">Cloud partagé pour l’édition/lecture/partage de fichier.</li></ul><ul id="69e3871c-7953-4702-88db-b3ecb43d07ec" class="bulleted-list"><li style="list-style-type:disc">Partage des secrets et des mots de passes d’administration dans un espace cloud restreint.</li></ul><ul id="24726bb3-7a76-45b4-85ca-e9efc2b56e6d" class="bulleted-list"><li style="list-style-type:disc">Outil pour le suivi de la qualité / des tests</li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="8f6552a2-36cb-4ffc-a608-5dc37b141fc6"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Tracez les grandes lignes des process du projet - par exemple réunions régulières, comités de pilotage, répertoire de documents, management de la configuration, assurance qualité, procédure en cas d’escalade, procédure en cas de changement.</div></figure><h2 id="95ce60fd-1c72-482c-b257-ff2be85094fc" class=""><strong>Rôles et responsabilités (RACI)</strong></h2><p id="f96a92cb-6863-4156-9a7c-3c5464408dde" class="">La matrice RACI permet d’identifier les rôles et les responsabilités de chacun via 4 responsabilités :</p><ul id="cca27bc5-9264-4061-9f56-f23f4055988c" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red"><strong>R → Responsible </strong></mark>: Celui qui réalise l’activité.</li></ul><ul id="e009b38d-c30a-45d2-9c85-2e134103bdc0" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red"><strong>A → Accountable</strong></mark> : Celui qui approuve l’activité avant d’être livrée, qui est l’autorité. C’est aussi celui qui doit rendre des comptes une fois l’activité approuvée.</li></ul><ul id="d9aaca5f-ed0e-457f-a866-7c29b3461acb" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red"><strong>C → Consulted </strong></mark>: Celui qui est consulté, donne son avis et ses conseil.</li></ul><ul id="735fc8dd-deba-4a1c-93b7-b89d7f7ef76b" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red"><strong>I → Informed </strong></mark>: Celui qui doit être informé tout au long de l’activité.</li></ul><table id="5ce18dd4-547e-4af2-85c8-23fd8e6688b4" class="simple-table"><thead class="simple-table-header"><tr id="14c1f577-f6dc-4209-ba22-a71e699ef6ea"><th id="mS&gt;;" class="block-color-yellow_background simple-table-header" style="width:219px"><strong>Activité</strong></th><th id="Twkd" class="block-color-teal_background simple-table-header">CEO, Ash Calum</th><th id="Wqn|" class="block-color-teal_background simple-table-header">CIO, Natacha Jarson</th><th id="Er^?" class="block-color-teal_background simple-table-header">CPO, Daniel Anthony</th><th id="]n:B" class="block-color-teal_background simple-table-header">CFO, Jo Kumar</th><th id="c&lt;aL" class="block-color-teal_background simple-table-header">CMO, Christina Orgega</th><th id="=vnm" class="block-color-teal_background simple-table-header">Architecte d’entreprise, Yoann Talon</th><th id="fTev" class="block-color-teal_background simple-table-header">Product Team</th><th id="zn?F" class="block-color-teal_background simple-table-header">Frontend
+Squad</th><th id="KvWH" class="block-color-teal_background simple-table-header">Backend
+Squad</th><th id="PLeG" class="block-color-teal_background simple-table-header">Ruby Dev
+Squad</th><th id="c`ID" class="block-color-teal_background simple-table-header">Ops Squad</th><th id="Y^P^" class="block-color-teal_background simple-table-header">IAM
+Squad</th><th id="Rkt=" class="block-color-teal_background simple-table-header">Marketing Team</th><th id="d::s" class="block-color-teal_background simple-table-header">Financial Team</th></tr></thead><tbody><tr id="2a286b57-468f-474a-ba88-18fbdccb4331"><th id="mS&gt;;" class="block-color-yellow_background simple-table-header" style="width:219px"><strong>Recherche utilisateurs et produit</strong></th><td id="Twkd" class="">Informed</td><td id="Wqn|" class="">Informed</td><td id="Er^?" class="">Accountable</td><td id="]n:B" class="">Informed</td><td id="c&lt;aL" class="">Informed</td><td id="=vnm" class="">Consulted</td><td id="fTev" class="">Responsible</td><td id="zn?F" class="">Consulted</td><td id="KvWH" class="">Informed</td><td id="PLeG" class="">Informed</td><td id="c`ID" class="">Informed</td><td id="Y^P^" class="">Informed</td><td id="Rkt=" class="">Informed</td><td id="d::s" class="">Informed</td></tr><tr id="cbfab015-28e8-4bbd-bf38-8e95f68e8d89"><th id="mS&gt;;" class="block-color-yellow_background simple-table-header" style="width:219px"><strong>Conception des Maquettes UI/UX</strong></th><td id="Twkd" class="">Informed</td><td id="Wqn|" class="">Informed</td><td id="Er^?" class="">Accountable</td><td id="]n:B" class="">Informed</td><td id="c&lt;aL" class="">Informed</td><td id="=vnm" class="">Consulted</td><td id="fTev" class="">Responsible</td><td id="zn?F" class="">Consulted</td><td id="KvWH" class="">Informed</td><td id="PLeG" class="">Informed</td><td id="c`ID" class="">Informed</td><td id="Y^P^" class="">Informed</td><td id="Rkt=" class="">Informed</td><td id="d::s" class="">Informed</td></tr><tr id="2ad5a0ec-e9c6-4137-80ae-e1975b90c682"><th id="mS&gt;;" class="block-color-yellow_background simple-table-header" style="width:219px"><strong>Réunions de suivi de projet (comité de pilotage)</strong></th><td id="Twkd" class="">Accountable</td><td id="Wqn|" class="">Responsible</td><td id="Er^?" class="">Responsible</td><td id="]n:B" class="">Responsible</td><td id="c&lt;aL" class="">Responsible</td><td id="=vnm" class="">Responsible</td><td id="fTev" class="">Informed</td><td id="zn?F" class="">Informed</td><td id="KvWH" class="">Informed</td><td id="PLeG" class="">Informed</td><td id="c`ID" class="">Informed</td><td id="Y^P^" class="">Informed</td><td id="Rkt=" class="">Informed</td><td id="d::s" class="">Informed</td></tr><tr id="08842efe-3ada-4e01-98ff-aa9548952cb8"><th id="mS&gt;;" class="block-color-yellow_background simple-table-header" style="width:219px"><strong>Outillage et mise en place des environnements (Dev, Stage, Production)</strong></th><td id="Twkd" class="">Informed</td><td id="Wqn|" class="">Accountable</td><td id="Er^?" class="">Informed</td><td id="]n:B" class="">Informed</td><td id="c&lt;aL" class="">Informed</td><td id="=vnm" class="">Consulted</td><td id="fTev" class="">Informed</td><td id="zn?F" class="">Responsible</td><td id="KvWH" class="">Responsible</td><td id="PLeG" class="">Responsible</td><td id="c`ID" class="">Responsible</td><td id="Y^P^" class="">Responsible</td><td id="Rkt=" class="">Informed</td><td id="d::s" class="">Informed</td></tr><tr id="340abf11-d548-4279-8be8-a57e2a95b0c4"><th id="mS&gt;;" class="block-color-yellow_background simple-table-header" style="width:219px"><strong>Développement/Intégration des solutions Frontend</strong></th><td id="Twkd" class="">Informed</td><td id="Wqn|" class="">Accountable</td><td id="Er^?" class="">Consulted</td><td id="]n:B" class="">Informed</td><td id="c&lt;aL" class="">Informed</td><td id="=vnm" class="">Consulted</td><td id="fTev" class="">Consulted</td><td id="zn?F" class="">Responsible</td><td id="KvWH" class="">Consulted</td><td id="PLeG" class="">Consulted</td><td id="c`ID" class="">Consulted</td><td id="Y^P^" class="">Consulted</td><td id="Rkt=" class="">Informed</td><td id="d::s" class="">Informed</td></tr><tr id="569967c7-16ae-4afe-839f-0ba2b092f51a"><th id="mS&gt;;" class="block-color-yellow_background simple-table-header" style="width:219px"><strong>Développement et mise en œuvre des solutions Backend</strong></th><td id="Twkd" class="">Informed</td><td id="Wqn|" class="">Accountable</td><td id="Er^?" class="">Informed</td><td id="]n:B" class="">Informed</td><td id="c&lt;aL" class="">Informed</td><td id="=vnm" class="">Consulted</td><td id="fTev" class="">Informed</td><td id="zn?F" class="">Consulted</td><td id="KvWH" class="">Responsible</td><td id="PLeG" class="">Responsible</td><td id="c`ID" class="">Responsible</td><td id="Y^P^" class="">Responsible</td><td id="Rkt=" class="">Informed</td><td id="d::s" class="">Informed</td></tr><tr id="54705849-8510-4683-9cee-3fbf880a1ffa"><th id="mS&gt;;" class="block-color-yellow_background simple-table-header" style="width:219px"><strong>Mise en œuvre de la livraison continue (CI/CD)</strong></th><td id="Twkd" class="">Informed</td><td id="Wqn|" class="">Accountable</td><td id="Er^?" class="">Informed</td><td id="]n:B" class="">Informed</td><td id="c&lt;aL" class="">Informed</td><td id="=vnm" class="">Consulted</td><td id="fTev" class="">Informed</td><td id="zn?F" class="">Consulted</td><td id="KvWH" class="">Responsible</td><td id="PLeG" class="">Consulted</td><td id="c`ID" class="">Responsible</td><td id="Y^P^" class="">Consulted</td><td id="Rkt=" class="">Informed</td><td id="d::s" class="">Informed</td></tr><tr id="082ac052-09fa-4d82-b502-4ba4e179cae8"><th id="mS&gt;;" class="block-color-yellow_background simple-table-header" style="width:219px"><strong>Mise en place d’outils de supervision de la plateforme</strong></th><td id="Twkd" class="">Informed</td><td id="Wqn|" class="">Accountable</td><td id="Er^?" class="">Informed</td><td id="]n:B" class="">Informed</td><td id="c&lt;aL" class="">Informed</td><td id="=vnm" class="">Consulted</td><td id="fTev" class="">Informed</td><td id="zn?F" class="">Consulted</td><td id="KvWH" class="">Responsible</td><td id="PLeG" class="">Consulted</td><td id="c`ID" class="">Responsible</td><td id="Y^P^" class="">Consulted</td><td id="Rkt=" class="">Informed</td><td id="d::s" class="">Informed</td></tr><tr id="265521f0-cfd2-41c5-b57a-b8ee3aac3ecb"><th id="mS&gt;;" class="block-color-yellow_background simple-table-header" style="width:219px"><strong>Mise en place de la gestion d’identité et d’accès (interne et externe)</strong></th><td id="Twkd" class="">Informed</td><td id="Wqn|" class="">Accountable</td><td id="Er^?" class="">Informed</td><td id="]n:B" class="">Informed</td><td id="c&lt;aL" class="">Informed</td><td id="=vnm" class="">Consulted</td><td id="fTev" class="">Informed</td><td id="zn?F" class="">Informed</td><td id="KvWH" class="">Consulted</td><td id="PLeG" class="">Consulted</td><td id="c`ID" class="">Consulted</td><td id="Y^P^" class="">Responsible</td><td id="Rkt=" class="">Informed</td><td id="d::s" class="">Informed</td></tr><tr id="024497c9-5674-4e52-a651-3c528ec52e29"><th id="mS&gt;;" class="block-color-yellow_background simple-table-header" style="width:219px"><strong>Développement des tests</strong></th><td id="Twkd" class="">Informed</td><td id="Wqn|" class="">Accountable</td><td id="Er^?" class="">Informed</td><td id="]n:B" class="">Informed</td><td id="c&lt;aL" class="">Informed</td><td id="=vnm" class="">Consulted</td><td id="fTev" class="">Consulted</td><td id="zn?F" class="">Responsible</td><td id="KvWH" class="">Responsible</td><td id="PLeG" class="">Responsible</td><td id="c`ID" class="">Responsible</td><td id="Y^P^" class="">Responsible</td><td id="Rkt=" class="">Informed</td><td id="d::s" class="">Informed</td></tr><tr id="4da23d46-2ddb-4014-8953-84a3f0f08ed4"><th id="mS&gt;;" class="block-color-yellow_background simple-table-header" style="width:219px"><strong>Documentation des systèmes, procédures et du produit</strong></th><td id="Twkd" class="">Informed</td><td id="Wqn|" class="">Accountable</td><td id="Er^?" class="">Consulted</td><td id="]n:B" class="">Informed</td><td id="c&lt;aL" class="">Informed</td><td id="=vnm" class="">Consulted</td><td id="fTev" class="">Responsible</td><td id="zn?F" class="">Responsible</td><td id="KvWH" class="">Responsible</td><td id="PLeG" class="">Responsible</td><td id="c`ID" class="">Responsible</td><td id="Y^P^" class="">Responsible</td><td id="Rkt=" class="">Informed</td><td id="d::s" class="">Informed</td></tr><tr id="b49f2dd0-e9d0-49c7-8c0e-9c2015c34e8b"><th id="mS&gt;;" class="block-color-yellow_background simple-table-header" style="width:219px"><strong>Production des contenus créatifs et visuels de communication</strong></th><td id="Twkd" class="">Informed</td><td id="Wqn|" class="">Informed</td><td id="Er^?" class="">Consulted</td><td id="]n:B" class="">Informed</td><td id="c&lt;aL" class="">Informed</td><td id="=vnm" class="">Consulted</td><td id="fTev" class="">Consulted</td><td id="zn?F" class="">Consulted</td><td id="KvWH" class="">Informed</td><td id="PLeG" class="">Informed</td><td id="c`ID" class="">Informed</td><td id="Y^P^" class="">Informed</td><td id="Rkt=" class="">Responsible</td><td id="d::s" class="">Informed</td></tr><tr id="f9b8acf5-d791-4cf5-809e-54a0c2d79884"><th id="mS&gt;;" class="block-color-yellow_background simple-table-header" style="width:219px"><strong>Suivi du budget du projet et des KPI</strong></th><td id="Twkd" class="">Accountable</td><td id="Wqn|" class="">Responsible</td><td id="Er^?" class="">Responsible</td><td id="]n:B" class="">Responsible</td><td id="c&lt;aL" class="">Responsible</td><td id="=vnm" class="">Responsible</td><td id="fTev" class="">Informed</td><td id="zn?F" class="">Informed</td><td id="KvWH" class="">Informed</td><td id="PLeG" class="">Informed</td><td id="c`ID" class="">Informed</td><td id="Y^P^" class="">Informed</td><td id="Rkt=" class="">Informed</td><td id="d::s" class="">Responsible</td></tr></tbody></table><h2 id="d9d97e32-e287-40f6-bc17-9b4225def6d7" class=""><strong>Approche architecturale</strong></h2><h3 id="1610a175-1954-462e-9715-4ee516d17a3d" class="">Process d’architecture</h3><p id="7635f50b-39e3-4cfb-80dc-e9be877bd2db" class="">La méthode de développement d’architecture TOGAF (ou ADM pour « Architecture Development Method ») décrit une méthodologie des meilleures pratiques pour le développement architectural.
+Néanmoins, toutes les phases ne sont pas également pertinentes pour chaque projet. Le tableau ci-dessous décrit l’utilisation de l’ADM pour ce projet spécifique.</p><p id="fb2814f1-cc40-4851-9ab2-5f038c5d8e52" class="">Certaines phases du TOGAF ADM ne concernant pas la phase 1 du projet Foosus, elles ont été supprimées du tableau.</p><table id="474d47d5-d67c-48be-b7cf-fcf1702e4903" class="simple-table"><thead class="simple-table-header"><tr id="72eb4d34-eaa8-4da6-b54d-6cb64b6693b3"><th id="ibhG" class="block-color-yellow_background simple-table-header" style="width:232.66666666666666px">Phase</th><th id="yT@I" class="block-color-teal_background simple-table-header" style="width:369.6625061035156px">Entrée/Sortie</th></tr></thead><tbody><tr id="75677076-cb8f-45e2-9f68-d1cd5ee90485"><th id="ibhG" class="block-color-yellow_background simple-table-header" style="width:232.66666666666666px">Préliminaire</th><td id="yT@I" class="" style="width:369.6625061035156px"><strong>Entrée </strong>: Brief Business de Haut Niveau
+<strong>Sortie </strong>: Requête de travail d’architecture</td></tr><tr id="d26ff22b-dac6-4723-b8be-f29b29a8279c"><th id="ibhG" class="block-color-yellow_background simple-table-header" style="width:232.66666666666666px">A —Vision de l’architecture</th><td id="yT@I" class="" style="width:369.6625061035156px"><strong>Entrée </strong>: 
+- Requête de travail d’architecture
+- Vision architecturale
+<strong>Sortie </strong>: Déclaration de travail d’architecture</td></tr><tr id="acce3631-ec38-4f0d-8837-2a56c68beb9a"><th id="ibhG" class="block-color-yellow_background simple-table-header" style="width:232.66666666666666px">B —Architecture business</th><td id="yT@I" class="" style="width:369.6625061035156px"><strong>Entrée </strong>: 
+- Requête de travail d’architecture
+- Vision architecturale
+<strong>Sortie </strong>: Contrat d’Architecture des utilisateurs Business</td></tr><tr id="7aef8f01-699c-4566-aeac-6bf8dc22bf97"><th id="ibhG" class="block-color-yellow_background simple-table-header" style="width:232.66666666666666px">C — Architecture des systèmes
+d’information</th><td id="yT@I" class="" style="width:369.6625061035156px"><strong>Entrée </strong>: 
+- Requête de travail d’architecture
+- Vision architecturale
+<strong>Sortie </strong>: Contrat de Conception et de Développement de l’Architecture</td></tr><tr id="57032d98-06ff-40ed-b738-cdf3a6cc1fec"><th id="ibhG" class="block-color-yellow_background simple-table-header" style="width:232.66666666666666px"></th><td id="yT@I" class="" style="width:369.6625061035156px"><strong>Entrée </strong>: 
+- Requête de travail d’architecture
+- Vision architecturale
+<strong>Sortie </strong>: 
+- Contrat de Conception et de Développement de l’Architecture
+- Vision architecturale</td></tr><tr id="160d3301-7e7a-406a-91f1-ae4c23442de1"><th id="ibhG" class="block-color-yellow_background simple-table-header" style="width:232.66666666666666px">E —Opportunités et solutions</th><td id="yT@I" class="" style="width:369.6625061035156px"><strong>Entrée </strong>: 
+- Requête de travail d’architecture
+- Vision architecturale
+<strong>Sortie </strong>: 
+- Contrat d’Architecture des utilisateurs Business
+- Contrat de Conception et de Développement de l’Architecture</td></tr></tbody></table><h2 id="eb962592-94f0-40e8-949b-6d530ca94cec" class=""><strong>Contenu de l’architecture</strong></h2><p id="75ac3a22-55cf-4c7e-9d9e-a50a4d831b4a" class="">Le cadre de contenu d’architecture TOGAF (ou ACF pour « Architecture Content Framework ») fournit une catégorisation des meilleures pratiques pour le contenu de l’architecture.</p><p id="ef828bde-ad68-492d-ae63-680137395b3c" class="">Néanmoins, tous les éléments ne sont pas également pertinents pour chaque projet. Le tableau ci-dessous décrit les zones de contenu pertinentes pour ce projet spécifique.</p><table id="dae58f49-9c61-4a1b-8de6-f579b3526cc7" class="simple-table"><thead class="simple-table-header"><tr id="fb0211e1-37db-4ebc-9db1-e49ed1c8f602"><th id="F=Y}" class="block-color-yellow_background simple-table-header"><strong>Zone de contenu</strong></th><th id="g&gt;Dd" class="block-color-teal_background simple-table-header" style="width:345px">Entrée/Sortie</th></tr></thead><tbody><tr id="171870cf-1154-49f3-8a84-65791887dc8a"><th id="F=Y}" class="block-color-yellow_background simple-table-header">Principes, Vision, et Conditions requises de l’Architecture</th><td id="g&gt;Dd" class="" style="width:345px"><strong>Entrée </strong>: 
+- Brief Business de haut niveau
+- Requête de travail d’architecture
+- Vision architecturale
+<strong>Sortie </strong>: 
+- Déclaration de travail d’architecture
+- Vision architecturale</td></tr><tr id="660d0e5d-48e9-478c-800e-ad0c4cbd3627"><th id="F=Y}" class="block-color-yellow_background simple-table-header">Architecture Business</th><td id="g&gt;Dd" class="" style="width:345px"><strong>Entrée </strong>: 
+- Brief Business de haut niveau
+- Requête de travail d’architecture
+- Vision architecturale
+<strong>Sortie </strong>: 
+- Contrat d’Architecture des utilisateurs Business</td></tr><tr id="5e17c5ef-76e0-46c8-900c-b4d2a86891b8"><th id="F=Y}" class="block-color-yellow_background simple-table-header">Architecture des systèmes d’information — Données</th><td id="g&gt;Dd" class="" style="width:345px"><strong>Entrée </strong>: 
+- Brief Business de haut niveau
+- Requête de travail d’architecture
+- Vision architecturale
+<strong>Sortie </strong>: 
+- Spécification des Conditions requises pour l’Architecture
+- Contrat de Conception et de Développement de l’Architecture</td></tr><tr id="6c26cfd1-2f54-4ee9-a2af-71afe4fcf897"><th id="F=Y}" class="block-color-yellow_background simple-table-header">Architecture des systèmes d’information — Applications</th><td id="g&gt;Dd" class="" style="width:345px"><strong>Entrée </strong>: 
+- Brief Business de haut niveau
+- Requête de travail d’architecture
+- Vision architecturale
+<strong>Sortie </strong>: 
+- Spécification des Conditions requises pour l’Architecture
+- Contrat de Conception et de Développement de l’Architecture</td></tr><tr id="e5dad2d5-c344-44c5-9050-0cc58c9adc90"><th id="F=Y}" class="block-color-yellow_background simple-table-header">Architecture technologique</th><td id="g&gt;Dd" class="" style="width:345px"><strong>Entrée </strong>: 
+- Brief Business de haut niveau
+- Requête de travail d’architecture
+- Vision architecturale
+<strong>Sortie </strong>: 
+- Spécification des Conditions requises pour l’Architecture 
+- Contrat de Conception et de Développement de l’Architecture</td></tr></tbody></table><h2 id="4fc16bca-a4ce-40a2-9931-6936ccbedf76" class=""><strong>Méthodologies pertinentes et normes de l’industrie</strong></h2><p id="cf508e67-cf03-4efc-989f-a8a1578e461a" class="">Soutien au Continuum de l’entreprise. Les autres points notables relatifs à l’approche architecturale incluent :</p><ul id="c1771262-6490-4e7e-a48a-c47b8beff28e" class="bulleted-list"><li style="list-style-type:disc"><strong>Le niveau de détai</strong>l (stratégique | segment | capacité)</li></ul><p id="3d3110b6-40d2-4473-af60-0b7d3a4ad52c" class="">L’approche architecturale assure un niveau de détail stratégique, afin de partager la vision à tous les acteurs du projet. Egalement, elle offre un niveau de détail par segment, en fonction du type de parties prenantes concernée, entre les parties Business et Technique.</p><ul id="d42dbc7e-bc6f-48b1-bcb0-468d0b601f32" class="bulleted-list"><li style="list-style-type:disc"><strong>La période de temps</strong> (quelle période de temps l’architecture couvre-t-elle ?)</li></ul><p id="12e2a593-9e47-4106-a711-2a450599df4b" class="">L’architecture couvre la période de temps d’Aujourd’hui à plusieurs années. Elle doit être capable d’évoluer au fil des projets sans être remise ne cause dans son entièreté.</p><ul id="93ab99be-5354-43c7-a203-bfbc56407bfc" class="bulleted-list"><li style="list-style-type:disc"><strong>Le niveau d’abstraction </strong>(par exemple une représentation concrète de solutions, ou une architecture de référence plus abstraite).</li></ul><p id="913d669d-6e45-4d4a-9a53-b03c1c388ef5" class="">L’approche architecture fournit un architecture de référence abstraite ainsi qu’une représentation concrète  des solutions à travers des modèles de diagrammes C4</p><ul id="44042665-a1ea-41d2-82ab-1afb858fcc59" class="bulleted-list"><li style="list-style-type:disc"><strong>La ligne de base vs la cible</strong> </li></ul><p id="63d4e3cb-8daa-474a-a228-4c3f7420289c" class="">L’accent est mis sur la documentation de l’architecture cible, faisant office de nouvelle architecture. Cependant l’architecture de base est étudiée afin de s’inspirer des compromis architecturaux qui ont fonctionné, mais également pour transférer les savoirs et savoirs faires des équipes dans la nouvelle architecture.</p><ul id="62a16811-5a23-4d7c-9624-efc0e0d26ba6" class="bulleted-list"><li style="list-style-type:disc"><strong>L’itération </strong>— l’itération est-elle utilisée dans l’ADM ?</li></ul><p id="469c709e-14c8-4be0-8b03-2e4153b95bf7" class="">L’itération est utilisée dans l’ADM, de manière à ce que chaque équipe puisse planifier ses travaux, les réaliser, analyser les résultats et agir en conséquence. </p><p id="b7b18a1f-c328-491b-ab4a-12f04a832e83" class="">Le versionnage des documents et blocs architecturaux entrent également dans la démarche d’amélioration continue.</p><h2 id="d207a86f-ff50-487b-a5b7-3d4ba72d92f4" class=""><strong>Plan de travail</strong></h2><p id="46245561-2414-4a68-9420-45f45af1da49" class="">Cette section décrit toutes les activités et tous les livrables du travail d’architecture durant la phase 1 du projet.</p><h3 id="055a18f9-fb1f-41b4-84ae-ba0308eb6f2e" class="">Spécification et vision de la nouvelle architecture</h3><p id="b0a34599-0103-4fc6-b150-ce3fb5490d69" class=""><strong>Activités :</strong></p><p id="37ce9932-8091-4ccc-93a7-b27e0f1b87f8" class="">Définition des conditions requises pour la réussite de l’architecture cible, ainsi que des solutions retenues pour y répondre. Mise à jour de la vision architecturale de Foosus, pour que la stratégie business reste alignée avec la stratégie des systèmes d’information.</p><p id="26cff32c-b173-43bf-89be-537cdbdb4579" class=""><strong>Livrables :</strong></p><p id="5c4a4e6a-02ef-41cb-9d2b-4b75865bc9d1" class="">Les produits de travail suivant seront créés en résultat de ce travail d’architecture :</p><ul id="08f010df-45be-45c3-a2de-1e927bcf6e47" class="bulleted-list"><li style="list-style-type:disc"><strong>Spécification des Conditions requises pour l’Architecture </strong>: </li></ul><ul id="690d1cf8-84d9-4df1-bb5b-c92143b7d37d" class="bulleted-list"><li style="list-style-type:disc"><strong>Vision Architecturale</strong> : Mise à jour de la vision architecturale, avec notamment un diagramme de haut niveau de l’architecture cible.</li></ul><h3 id="3e8da1b6-435a-41a8-8b36-23b73d49828f" class="">Contrats d’architecture avec les parties prenantes</h3><p id="dcb64805-bbbd-4433-8a73-0c1e45941c96" class=""><strong>Activités :</strong></p><p id="df415ac1-4b4f-49b7-aa91-38b4397658c2" class="">Définition des accords communs avec la maîtrise d’ouvrage et la maîtrise d’œuvre du projet de nouvelle architecture.</p><p id="b62f5d56-0c44-45f1-83cf-487fd3584081" class=""><strong>Livrables :</strong></p><ul id="990bd746-0c44-441c-9f89-04e7e9a23ec2" class="bulleted-list"><li style="list-style-type:disc"><strong><strong>Contrat d’architecture des utilisateurs business : </strong></strong>Déclaration d’intention de se conformer à l’architecture d’entreprise, délivrée par les utilisateurs business entreprise.</li></ul><ul id="ba750b5e-0604-4c04-afcc-2f9d8cd71956" class="bulleted-list"><li style="list-style-type:disc"><strong>Contrat de Conception et de Développement de l’Architecture : </strong> Déclaration d’intention signée sur la conception et le développement de l’architecture d’entreprise, ou de parties significatives de celles-ci, de la part d’organisations partenaires, y compris les intégrateurs système, fournisseurs d’applications, et fournisseurs de service.</li></ul><div><h2 id="74e9840d-0559-449e-b756-ace2ecb02979" class="">Plan de communication</h2><p id="048447a8-7360-487c-bd7d-92cd6b130d50" class="">Afin d’assurer la réussite du projet, et d’élargir la visibilité de Foosus auprès du grand public, nous nous devons de définir un plan de communication qui répondra à ces objectifs.</p><h3 id="17bdfba2-27bf-47e7-8019-3f519bbec39d" class="">Évènements</h3><ul id="b0a80adc-1202-497c-aa83-769eb482e27b" class="bulleted-list"><li style="list-style-type:disc">Kick-Off, réunion de lancement, durant les début de phases du projet, et des activités.</li></ul><ul id="37dadf19-f9d9-4498-84eb-e803ddfe2626" class="bulleted-list"><li style="list-style-type:disc">Prospection auprès d’utilisateurs finaux, fournisseurs et futurs utilisateurs.</li></ul><ul id="bfb14f8e-72fb-489c-a096-3a5c0feca445" class="bulleted-list"><li style="list-style-type:disc">Campagne de publicité web durant la prochaine phase du projet</li></ul><ul id="79c95c0b-62a3-44b4-ab14-9dd0698e3569" class="bulleted-list"><li style="list-style-type:disc">Campagne publicitaire physique </li></ul><ul id="a5b3cd92-83fb-4bad-ae96-ba1f0f8d2ac2" class="bulleted-list"><li style="list-style-type:disc">Evènement physique dans certaines villes afin de promouvoir le produit Foosus, en compagnie de fournisseurs, utilisateurs, ainsi que d’acteurs publics et privés proches du domaine de l’alimentation éco-responsable.</li></ul><h3 id="c2f56dab-6b23-49dd-a8b7-e7db7e332d01" class="">Canaux</h3><p id="c9a0ebb8-c1e3-4078-8fff-2d4e3c532845" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Numériques :</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><ul id="ecd7b0cb-dc47-40df-9f1b-3b6b3c151fe0" class="bulleted-list"><li style="list-style-type:disc">LinkedIn, Twitter, Facebook, Instagram, TikTok, Forums locaux, Blogs d’affiliation.</li></ul><p id="4aa845d3-3467-4dc6-ab8d-fb249c622997" class="">En interne : </p><ul id="47757d0f-e041-4a7b-a055-024f6df23bce" class="bulleted-list"><li style="list-style-type:disc">Messagerie et canaux de discussion instantanée, tel que Slack.</li></ul><ul id="c0fd228b-faeb-48a3-a666-2db0252fc7d2" class="bulleted-list"><li style="list-style-type:disc">Fils de commentaires depuis l’ERP commun pour les retours rapides</li></ul><ul id="f91f91db-6733-4dc0-b3f8-7b2646d02b8a" class="bulleted-list"><li style="list-style-type:disc">Documentations des équipes, faisant office de supports de communication plus formels.</li></ul><p id="e11e4b37-21ea-423b-8d05-a64d0efd95af" class=""><strong><strong><strong><strong><strong>Physiques : </strong></strong></strong></strong></strong></p><ul id="096c1903-d5c5-4148-bd66-5bc34d8c23da" class="bulleted-list"><li style="list-style-type:disc">Démarchage physique de fournisseurs locaux</li></ul><ul id="477084da-6ae9-4e3d-9fef-f32c6a48bebe" class="bulleted-list"><li style="list-style-type:disc">Publicité dans les zones urbaines et péri-urbaines</li></ul><h3 id="016cb0b4-c2e0-4dd6-9a13-e326bce94782" class="">Formats</h3><p id="5108d083-909d-450b-a01c-76ebe0af9bf9" class="">Le format à privilégier pour les documents technique est le markdown (.md). De plus, ces documents devront être versionnés (via Git) afin de suivre l’évolution de ces derniers.</p><p id="bf6034bb-aa1c-4b59-9b0b-d7b28e9dea10" class="">Le format de documents business dépend des choix et contraintes des équipes. Ce peut être du markdown, PDF, ou .docx, du moment qu’ils respectent les formats et structures propres à l’organisation.</p><p id="d2f07a39-d6a8-4ebe-bf4d-e22556b04d05" class="">Pour les équipes de communication, le format des contenu dépend de la plateforme et  des personnes cibles. Ils peuvent être sous forme vidéo, photo, publication, bannière, courte vidéo, etc. Le format sera adapté au média utilisé.</p><h3 id="c86df06f-c93d-496c-9568-f6f9417cec87" class="">Contenu</h3><p id="46f4cc15-68ec-4235-bf16-c752e007b3ba" class="">Le contenu lié à la mise en place de la nouvelle architecture se fera d’abord en interne pour que chaque personne soit au courant et prenne part à l’avancée.</p><p id="7c15875f-b8a9-4a3f-88ef-10c90749b2e7" class="">Elle se formalisera ensuite par du contenu sur les réseaux sociaux et du contenu physique dans différentes zones géographiques pour donner un maximum de visibilité au produit. L’objectif est d’augmenter l’engagement et l’adoption de Foosus.</p><h3 id="d2f363df-3211-4c02-948f-a52b90222220" class=""><strong>Durée et effort</strong></h3><p id="eceeac23-eddd-4461-af56-ba3d0c20c38c" class="">La communication autour du produit s’inscrit dans une durée à long terme, ainsi que des efforts soutenus tout au long du projet. </p><p id="829b1e95-08c0-45c6-b80b-c7d0693550d1" class="">La durée et l’effort de communication est avant tout en interne pour la première phase, mais sera étendu aux utilisateurs finaux et prospects lors de la deuxième phase et celles qui suivront.</p><h3 id="9fffd34f-739d-49ed-8931-cd2512fb7dec" class="">Collaboration</h3><p id="2f035a3c-a918-4d61-bfc0-85d971a717e9" class="">Les équipes de Foosus seront amenées à collaborer de manière transdisciplinaire afin d’assurer la cohésion et l’alignement des tous les acteurs du projet jusqu’à atteindre l’état final de l’architecture cible.</p><p id="0fac66d0-fe66-4fc5-997a-b301f9c7487e" class="">Les équipes de communication et Produit collaboreront également avec des acteurs externes, soit pour améliorer la connaissance des problèmes utilisateurs, soit pour promouvoir la solution auprès de la population.</p><h3 id="a3b69b29-c4da-4b5a-8d30-89d754f904c5" class="">Rythme de communication</h3><p id="b86d3905-0dd2-4341-8031-54e189978990" class="">La communication autour du produit s’inscrit dans une durée à long terme, ainsi que des efforts soutenus tout au long du projet. </p><p id="055ed886-0801-4bfc-87a2-60445bbc6e3f" class="">La durée et l’effort de communication est avant tout en interne pour la première phase, mais sera étendu aux utilisateurs finaux et prospects lors de la deuxième phase et celles qui suivront.</p></div><h2 id="23c04441-77bd-411e-80ab-7fa26df562e8" class="">Plan et calendrier du projet</h2><p id="b6b1cc5f-dff5-4005-aa92-3f767009db56" class="">Le plan et calendrier du projet concerne la phase 1 ainsi que la phase 2, qui aura lieu après la phase de définition de l’architecture cible et du plan de suivi de projet.</p><p id="07e73b91-3a40-4ac2-8115-1eb5677b2a26" class="">Dans l’approche agile adoptée, nous proposons une projection des activités trimestre par trimestre, afin de se fixer des objectifs à moyen terme. De cette manière, nous pourrons rapidement réajuster nos objectifs et fournir une vision à nos équipes. </p><p id="fb7ef9af-f5da-4da4-bd4b-e7898b5bb89e" class="">Les dates de fin des activités sont définies, mais seront sujets à réflexions aux équipes, afin d’organiser au mieux leur temps de travail.</p><div id="822c4bd2-93ea-4dfa-8af3-670187d66669" class="collection-content"><h4 class="collection-title">OC P5 - Foosus Project planification Phase 1 &amp; 2</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesPerson"><path d="M10.9536 7.90088C12.217 7.90088 13.2559 6.79468 13.2559 5.38525C13.2559 4.01514 12.2114 2.92017 10.9536 2.92017C9.70142 2.92017 8.65137 4.02637 8.65698 5.39087C8.6626 6.79468 9.69019 7.90088 10.9536 7.90088ZM4.4231 8.03003C5.52368 8.03003 6.42212 7.05859 6.42212 5.83447C6.42212 4.63843 5.51245 3.68945 4.4231 3.68945C3.33374 3.68945 2.41846 4.64966 2.41846 5.84009C2.42407 7.05859 3.32251 8.03003 4.4231 8.03003ZM1.37964 13.168H5.49561C4.87231 12.292 5.43384 10.6074 6.78711 9.51807C6.18628 9.14746 5.37769 8.87231 4.4231 8.87231C1.95239 8.87231 0.262207 10.6917 0.262207 12.1628C0.262207 12.7974 0.548584 13.168 1.37964 13.168ZM7.50024 13.168H14.407C15.4009 13.168 15.7322 12.8423 15.7322 12.2864C15.7322 10.8489 13.8679 8.88354 10.9536 8.88354C8.04492 8.88354 6.17505 10.8489 6.17505 12.2864C6.17505 12.8423 6.50635 13.168 7.50024 13.168Z"></path></svg></span>Assign</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesDate"><path d="M3.29688 14.4561H12.7031C14.1797 14.4561 14.9453 13.6904 14.9453 12.2344V3.91504C14.9453 2.45215 14.1797 1.69336 12.7031 1.69336H3.29688C1.82031 1.69336 1.05469 2.45215 1.05469 3.91504V12.2344C1.05469 13.6973 1.82031 14.4561 3.29688 14.4561ZM3.27637 13.1162C2.70898 13.1162 2.39453 12.8154 2.39453 12.2207V5.9043C2.39453 5.30273 2.70898 5.00879 3.27637 5.00879H12.71C13.2842 5.00879 13.6055 5.30273 13.6055 5.9043V12.2207C13.6055 12.8154 13.2842 13.1162 12.71 13.1162H3.27637ZM6.68066 7.38086H7.08398C7.33008 7.38086 7.41211 7.30566 7.41211 7.05957V6.66309C7.41211 6.41699 7.33008 6.3418 7.08398 6.3418H6.68066C6.44141 6.3418 6.35938 6.41699 6.35938 6.66309V7.05957C6.35938 7.30566 6.44141 7.38086 6.68066 7.38086ZM8.92285 7.38086H9.31934C9.56543 7.38086 9.64746 7.30566 9.64746 7.05957V6.66309C9.64746 6.41699 9.56543 6.3418 9.31934 6.3418H8.92285C8.67676 6.3418 8.59473 6.41699 8.59473 6.66309V7.05957C8.59473 7.30566 8.67676 7.38086 8.92285 7.38086ZM11.1582 7.38086H11.5547C11.8008 7.38086 11.8828 7.30566 11.8828 7.05957V6.66309C11.8828 6.41699 11.8008 6.3418 11.5547 6.3418H11.1582C10.9121 6.3418 10.8301 6.41699 10.8301 6.66309V7.05957C10.8301 7.30566 10.9121 7.38086 11.1582 7.38086ZM4.44531 9.58203H4.84863C5.09473 9.58203 5.17676 9.50684 5.17676 9.26074V8.86426C5.17676 8.61816 5.09473 8.54297 4.84863 8.54297H4.44531C4.20605 8.54297 4.12402 8.61816 4.12402 8.86426V9.26074C4.12402 9.50684 4.20605 9.58203 4.44531 9.58203ZM6.68066 9.58203H7.08398C7.33008 9.58203 7.41211 9.50684 7.41211 9.26074V8.86426C7.41211 8.61816 7.33008 8.54297 7.08398 8.54297H6.68066C6.44141 8.54297 6.35938 8.61816 6.35938 8.86426V9.26074C6.35938 9.50684 6.44141 9.58203 6.68066 9.58203ZM8.92285 9.58203H9.31934C9.56543 9.58203 9.64746 9.50684 9.64746 9.26074V8.86426C9.64746 8.61816 9.56543 8.54297 9.31934 8.54297H8.92285C8.67676 8.54297 8.59473 8.61816 8.59473 8.86426V9.26074C8.59473 9.50684 8.67676 9.58203 8.92285 9.58203ZM11.1582 9.58203H11.5547C11.8008 9.58203 11.8828 9.50684 11.8828 9.26074V8.86426C11.8828 8.61816 11.8008 8.54297 11.5547 8.54297H11.1582C10.9121 8.54297 10.8301 8.61816 10.8301 8.86426V9.26074C10.8301 9.50684 10.9121 9.58203 11.1582 9.58203ZM4.44531 11.7832H4.84863C5.09473 11.7832 5.17676 11.708 5.17676 11.4619V11.0654C5.17676 10.8193 5.09473 10.7441 4.84863 10.7441H4.44531C4.20605 10.7441 4.12402 10.8193 4.12402 11.0654V11.4619C4.12402 11.708 4.20605 11.7832 4.44531 11.7832ZM6.68066 11.7832H7.08398C7.33008 11.7832 7.41211 11.708 7.41211 11.4619V11.0654C7.41211 10.8193 7.33008 10.7441 7.08398 10.7441H6.68066C6.44141 10.7441 6.35938 10.8193 6.35938 11.0654V11.4619C6.35938 11.708 6.44141 11.7832 6.68066 11.7832ZM8.92285 11.7832H9.31934C9.56543 11.7832 9.64746 11.708 9.64746 11.4619V11.0654C9.64746 10.8193 9.56543 10.7441 9.31934 10.7441H8.92285C8.67676 10.7441 8.59473 10.8193 8.59473 11.0654V11.4619C8.59473 11.708 8.67676 11.7832 8.92285 11.7832Z"></path></svg></span>Date</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>Status</th></tr></thead><tbody><tr id="f82dc1c2-d11d-4edb-bb07-6cd370f4d603"><td class="cell-title"><a href="https://www.notion.so/Q3-f82dc1c2d11d4edbbb076cd370f4d603?pvs=21">Q3</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"></td><td class="cell-]oD{"></td></tr><tr id="6dc998d4-2bbc-44f2-8cdd-43e27ebda5cf"><td class="cell-title"><a href="https://www.notion.so/Architecture-Contract-with-Business-6dc998d42bbc44f28cdd43e27ebda5cf?pvs=21"><span class="icon">💸</span>Architecture Contract with Business</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@July 24, 2023 → August 23, 2023</time></td><td class="cell-]oD{"></td></tr><tr id="8f97c265-b3e9-4f40-9cec-0789ec1bfff8"><td class="cell-title"><a href="https://www.notion.so/Architecture-Contract-Development-8f97c265b3e94f409cec0789ec1bfff8?pvs=21"><img class="icon" src="https://www.notion.so/icons/code_gray.svg"/>Architecture Contract Development</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@July 24, 2023 → August 23, 2023</time></td><td class="cell-]oD{"></td></tr><tr id="451fc218-d028-4fe7-83a9-b2658b1e8306"><td class="cell-title"><a href="https://www.notion.so/Architecture-Vision-451fc218d0284fe783a9b2658b1e8306?pvs=21"><span class="icon">👁️</span>Architecture Vision</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@June 26, 2023 → July 7, 2023</time></td><td class="cell-]oD{"></td></tr><tr id="8ccddef8-a0d3-4216-be3e-58d289085ae0"><td class="cell-title"><a href="https://www.notion.so/Architecture-Requirement-Specification-8ccddef8a0d34216be3e58d289085ae0?pvs=21"><span class="icon">📝</span>Architecture Requirement Specification</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@June 26, 2023 → July 23, 2023</time></td><td class="cell-]oD{"></td></tr><tr id="b4576306-c304-4270-9a87-38b0fa802b02"><td class="cell-title"><a href="https://www.notion.so/D-claration-de-Travail-d-Architecture-b4576306c30442709a8738b0fa802b02?pvs=21"><span class="icon">☑️</span>Déclaration de Travail d’Architecture</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@May 22, 2023 → June 23, 2023</time></td><td class="cell-]oD{"></td></tr><tr id="bc65bd62-a4b3-4fa8-972f-ff90d9882780"><td class="cell-title"><a href="https://www.notion.so/Architecture-Work-Phase-1-bc65bd62a4b34fa8972fff90d9882780?pvs=21"><span class="icon">📝</span>Architecture Work Phase 1</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@May 22, 2023 → August 27, 2023</time></td><td class="cell-]oD{"></td></tr><tr id="1895f808-0593-449a-bd47-33f0a5a0b5f4"><td class="cell-title"><a href="https://www.notion.so/Kick-Off-Phase-2-1895f8080593449abd4733f0a5a0b5f4?pvs=21"><span class="icon">🚀</span>Kick-Off Phase 2</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@August 28, 2023</time></td><td class="cell-]oD{"></td></tr><tr id="10cd968e-2d83-47e9-9e53-7772c3b2ea1f"><td class="cell-title"><a href="https://www.notion.so/Product-Researchs-10cd968e2d8347e99e537772c3b2ea1f?pvs=21"><span class="icon">🔍</span>Product Researchs</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@August 28, 2023 → September 30, 2023</time></td><td class="cell-]oD{"></td></tr><tr id="1cb41e63-756d-4430-af7d-8a66b55aa938"><td class="cell-title"><a href="https://www.notion.so/Conception-des-maquettes-et-prototypes-d-interface-1cb41e63756d4430af7d8a66b55aa938?pvs=21"><img class="icon" src="https://www.notion.so/icons/window_gray.svg"/>Conception des maquettes et prototypes d’interface</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@August 28, 2023 → November 27, 2023</time></td><td class="cell-]oD{"></td></tr><tr id="42ef5110-7149-466f-be2b-775a1c7f5198"><td class="cell-title"><a href="https://www.notion.so/System-Tests-acceptance-e2e-UI-42ef51107149466fbe2b775a1c7f5198?pvs=21"><span class="icon">✅</span>System Tests (acceptance, e2e, UI)</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@August 28, 2023 → November 27, 2023</time></td><td class="cell-]oD{"></td></tr><tr id="019a7ee5-3ca5-4e33-965e-167a7d2abe0b"><td class="cell-title"><a href="https://www.notion.so/D-veloppement-Frontend-019a7ee53ca54e33965e167a7d2abe0b?pvs=21"><span class="icon">👾</span>Développement Frontend</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@August 28, 2023 → November 27, 2023</time></td><td class="cell-]oD{"></td></tr><tr id="018c10fb-1d86-488d-ae8a-2f97bf9d8ae9"><td class="cell-title"><a href="https://www.notion.so/Unit-Tests-018c10fb1d86488dae8a2f97bf9d8ae9?pvs=21"><span class="icon">🧪</span>Unit Tests</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@August 28, 2023 → November 27, 2023</time></td><td class="cell-]oD{"></td></tr><tr id="8323e253-841c-455f-9e02-f3ff5a9fbb4e"><td class="cell-title"><a href="https://www.notion.so/D-veloppement-Backend-8323e253841c455f9e02f3ff5a9fbb4e?pvs=21"><span class="icon">👾</span>Développement Backend</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@August 28, 2023 → November 27, 2023</time></td><td class="cell-]oD{"></td></tr><tr id="2a9f9ae3-b40f-4ad8-ab52-e53d481953da"><td class="cell-title"><a href="https://www.notion.so/Integration-Tests-2a9f9ae3b40f4ad8ab52e53d481953da?pvs=21"><span class="icon">🧪</span>Integration Tests</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@August 28, 2023 → November 27, 2023</time></td><td class="cell-]oD{"></td></tr><tr id="accace96-d407-4601-94d7-9521bbb36640"><td class="cell-title"><a href="https://www.notion.so/IAM-Implementation-accace96d407460194d79521bbb36640?pvs=21"><span class="icon">👥</span>IAM Implementation</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@August 28, 2023 → November 27, 2023</time></td><td class="cell-]oD{"></td></tr><tr id="c448c319-aa4e-4aa9-8c3b-2cfc7dd70e28"><td class="cell-title"><a href="https://www.notion.so/Mise-en-place-des-environnements-op-rationnels-c448c319aa4e4aa98c3b2cfc7dd70e28?pvs=21"><img class="icon" src="https://www.notion.so/icons/server_gray.svg"/>Mise en place des environnements opérationnels</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@August 28, 2023 → November 27, 2023</time></td><td class="cell-]oD{"></td></tr><tr id="574f16f7-a94a-43a8-be31-98e0c850035e"><td class="cell-title"><a href="https://www.notion.so/Continuous-Delivery-CI-CD-Implementation-574f16f7a94a43a8be3198e0c850035e?pvs=21"><span class="icon">🔄</span>Continuous Delivery (CI/CD) Implementation</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@August 28, 2023 → November 27, 2023</time></td><td class="cell-]oD{"></td></tr><tr id="1900bac7-94ca-40ff-ae54-fe0e5396ee97"><td class="cell-title"><a href="https://www.notion.so/Observability-Implementation-1900bac794ca40ffae54fe0e5396ee97?pvs=21"><img class="icon" src="https://www.notion.so/icons/telescope_gray.svg"/>Observability Implementation</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@August 28, 2023 → November 27, 2023</time></td><td class="cell-]oD{"></td></tr><tr id="702d0adb-c51f-4b0e-8964-2148b34d29fe"><td class="cell-title"><a href="https://www.notion.so/Marketing-Customer-Prospectives-702d0adbc51f4b0e89642148b34d29fe?pvs=21"><span class="icon">💸</span>Marketing/Customer Prospectives</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@August 28, 2023 → February 24, 2024</time></td><td class="cell-]oD{"></td></tr><tr id="f85cb9c9-9674-457c-8a6b-72873c81f35a"><td class="cell-title"><a href="https://www.notion.so/Promotional-Event-f85cb9c99674457c8a6b72873c81f35a?pvs=21"><span class="icon">🌟</span>Promotional Event</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@December 17, 2023 → January 8, 2024</time></td><td class="cell-]oD{"></td></tr><tr id="030869a6-256d-4f12-93a9-33931178c1c4"><td class="cell-title"><a href="https://www.notion.so/Architecture-Work-Quarter-1-030869a6256d4f1293a933931178c1c4?pvs=21"><img class="icon" src="https://www.notion.so/icons/circle-alternate_pink.svg"/>Architecture Work - Quarter 1</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@August 28, 2023 → November 28, 2023</time></td><td class="cell-]oD{"></td></tr><tr id="76e9b18d-6166-4bd3-99d0-6c2f387ad4a9"><td class="cell-title"><a href="https://www.notion.so/Architecture-Work-Quarter-2-76e9b18d61664bd399d06c2f387ad4a9?pvs=21"><img class="icon" src="https://www.notion.so/icons/circle-alternate_purple.svg"/>Architecture Work - Quarter 2</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@November 28, 2023 → February 24, 2024</time></td><td class="cell-]oD{"></td></tr><tr id="475bf367-d25b-4d94-b5b7-d7eada64ed81"><td class="cell-title"><a href="https://www.notion.so/Architecture-Work-Phase-2-6-months-475bf367d25b4d94b5b7d7eada64ed81?pvs=21"><img class="icon" src="https://www.notion.so/icons/activity_red.svg"/>Architecture Work Phase 2 (6 months)</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@August 28, 2023 → February 24, 2024</time></td><td class="cell-]oD{"></td></tr><tr id="d2db1a9e-0f82-4489-a0b4-af704480603b"><td class="cell-title"><a href="https://www.notion.so/Quarter-4-d2db1a9e0f824489a0b4af704480603b?pvs=21"><span class="icon">🕘</span>Quarter 4</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@October 1, 2023 → December 31, 2023</time></td><td class="cell-]oD{"></td></tr><tr id="2e7b2366-e2ae-4c74-b35b-af979323d2c7"><td class="cell-title"><a href="https://www.notion.so/Quarter-2-2e7b2366e2ae4c74b35baf979323d2c7?pvs=21"><span class="icon">🕘</span>Quarter 2</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@April 1, 2024 → June 30, 2024</time></td><td class="cell-]oD{"></td></tr><tr id="b51b228b-a8d1-4f1f-9b68-597a03bb9181"><td class="cell-title"><a href="https://www.notion.so/Quarter-3-b51b228ba8d14f1f9b68597a03bb9181?pvs=21"><span class="icon">🕘</span>Quarter 3</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@July 1, 2023 → September 30, 2023</time></td><td class="cell-]oD{"></td></tr><tr id="28aa7258-9c6c-4801-906e-e67c4c3c0cde"><td class="cell-title"><a href="https://www.notion.so/Quarter-1-28aa72589c6c4801906ee67c4c3c0cde?pvs=21"><span class="icon">🕒</span>Quarter 1</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@January 1, 2024 → March 31, 2024</time></td><td class="cell-]oD{"></td></tr><tr id="e7953786-845f-4623-9d68-055efaccd0ba"><td class="cell-title"><a href="https://www.notion.so/Quarter-4-e7953786845f46239d68055efaccd0ba?pvs=21"><span class="icon">🕘</span>Quarter 4</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@October 1, 2024 → December 31, 2024</time></td><td class="cell-]oD{"></td></tr><tr id="39a7f84f-3384-4f3e-bdee-509127f737d7"><td class="cell-title"><a href="https://www.notion.so/Quarter-3-39a7f84f33844f3ebdee509127f737d7?pvs=21"><span class="icon">🕘</span>Quarter 3</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"><time>@July 1, 2024 → September 30, 2024</time></td><td class="cell-]oD{"></td></tr><tr id="230ac31a-95f5-4082-95fd-e99442394911"><td class="cell-title"><a href="https://www.notion.so/D-ploiement-du-prototype-230ac31a95f5408295fde99442394911?pvs=21">Déploiement du prototype</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"></td><td class="cell-]oD{"></td></tr><tr id="9167f6aa-fee0-41ba-ba62-41341077a266"><td class="cell-title"><a href="https://www.notion.so/Documentation-9167f6aafee041baba6241341077a266?pvs=21">Documentation</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"></td><td class="cell-]oD{"></td></tr><tr id="97746a21-fa97-4d30-9a2b-3a552ac8f158"><td class="cell-title"><a href="https://www.notion.so/Campagne-marketing-97746a21fa974d309a2b3a552ac8f158?pvs=21">Campagne marketing</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"></td><td class="cell-]oD{"></td></tr><tr id="60db5eb6-6047-4ad5-8f14-b845863b3fe1"><td class="cell-title"><a href="https://www.notion.so/Prospection-60db5eb660474ad58f14b845863b3fe1?pvs=21">Prospection</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"></td><td class="cell-]oD{"></td></tr><tr id="46e5451a-8687-4638-88ef-8058ce8d239b"><td class="cell-title"><a href="https://www.notion.so/46e5451a8687463888ef8058ce8d239b?pvs=21">Untitled</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"></td><td class="cell-]oD{"></td></tr><tr id="b4291d98-aa2a-4b5c-9a37-da34890330f5"><td class="cell-title"><a href="https://www.notion.so/b4291d98aa2a4b5c9a37da34890330f5?pvs=21">Untitled</a></td><td class="cell-_Bbm"></td><td class="cell-KJog"></td><td class="cell-]oD{"></td></tr></tbody></table><br/><br/></div><h2 id="098a418b-bf3c-4c0d-b32f-33f59cc7e05a" class=""><strong>Risques et facteurs de réduction</strong></h2><h3 id="ada0b82d-e69d-4c26-9354-7beb492a8074" class="">Analyse de risque (Classification)</h3><div><table id="f1a1dca6-9a31-4f3e-8266-c2960024cd98" class="simple-table"><thead class="simple-table-header"><tr id="8b23e8e6-b646-492d-a9a6-5e45a41b8aaa"><th id="lV?k" class="block-color-teal_background simple-table-header" style="width:248px">Risque</th><th id="G@t@" class="block-color-teal_background simple-table-header" style="width:52px">ID</th><th id="Kqfu" class="block-color-teal_background simple-table-header" style="width:75px">Gravité /4</th><th id="lkM\" class="block-color-teal_background simple-table-header" style="width:95px">Probabilité /4</th><th id="&lt;qSk" class="block-color-teal_background simple-table-header">Score
+(Gr. * Pr.) /16</th><th id="gH}Z" class="block-color-teal_background simple-table-header">Classification</th><th id="H\uz" class="block-color-teal_background simple-table-header" style="width:239px">Facteur de
+Réduction</th><th id="nHUg" class="block-color-teal_background simple-table-header">Propriétaire</th></tr></thead><tbody><tr id="5f364408-1ba3-4466-92d0-dfeab20c7637"><th id="lV?k" class="simple-table-header-color simple-table-header" style="width:248px">La livraison de l’architecture d’architecture ne respecte pas les délais imposés</th><td id="G@t@" class="" style="width:52px">R1</td><td id="Kqfu" class="" style="width:75px">3</td><td id="lkM\" class="" style="width:95px">3</td><td id="&lt;qSk" class="">9 </td><td id="gH}Z" class="">High</td><td id="H\uz" class="" style="width:239px">Découpage des tâches et activités en concertation</td><td id="nHUg" class="">CIO</td></tr><tr id="0b11ff1b-44a2-4abc-8764-32e99e7ccf06"><th id="lV?k" class="simple-table-header-color simple-table-header" style="width:248px">Les équipes internes de Foosus ne se coordonnent pas durant les phases de conception et réalisation</th><td id="G@t@" class="" style="width:52px">R2</td><td id="Kqfu" class="" style="width:75px">4</td><td id="lkM\" class="" style="width:95px">2</td><td id="&lt;qSk" class="">8</td><td id="gH}Z" class="">Low</td><td id="H\uz" class="" style="width:239px">Meetings et points de suivis réguliers</td><td id="nHUg" class="">CEO</td></tr><tr id="61b1dd5e-a0f6-4789-8a9b-c36c4c2f1969"><th id="lV?k" class="simple-table-header-color simple-table-header" style="width:248px">Le nombre d’inscription d’utilisateurs n’augmente pas suite à la mise en place de la nouvelle architecture</th><td id="G@t@" class="" style="width:52px">R3</td><td id="Kqfu" class="" style="width:75px">4</td><td id="lkM\" class="" style="width:95px">3</td><td id="&lt;qSk" class="">12</td><td id="gH}Z" class="">Inacceptable</td><td id="H\uz" class="" style="width:239px">Campagne de communication agressive, Visibilité Web, Event physique pour créer de l’engagement</td><td id="nHUg" class="">CEO</td></tr><tr id="9355e127-6887-4ca4-bf02-6822846bce81"><th id="lV?k" class="simple-table-header-color simple-table-header" style="width:248px">Les déploiements de la plateforme provoque des interruptions de disponibilité auprès des utilisateurs finaux</th><td id="G@t@" class="" style="width:52px">R4</td><td id="Kqfu" class="" style="width:75px">4</td><td id="lkM\" class="" style="width:95px">2</td><td id="&lt;qSk" class="">8</td><td id="gH}Z" class="">Low</td><td id="H\uz" class="" style="width:239px">Mise en place de déploiement progressif (rolling deployment) pour ne provoquer aucune interruption</td><td id="nHUg" class="">CIO</td></tr><tr id="abc56323-f4be-43e9-819d-66e3a7e9e31e"><th id="lV?k" class="simple-table-header-color simple-table-header" style="width:248px">L’architecture cible n’assure pas la mise à l’échelle du produit en cas de fort engagement</th><td id="G@t@" class="" style="width:52px">R5</td><td id="Kqfu" class="" style="width:75px">4</td><td id="lkM\" class="" style="width:95px">2</td><td id="&lt;qSk" class="">8</td><td id="gH}Z" class="">Low</td><td id="H\uz" class="" style="width:239px">Mise en place d’une architecture cible résiliente sans limite de capacité</td><td id="nHUg" class="">CIO</td></tr><tr id="c1dde097-ce13-4293-8556-9be0225d847d"><th id="lV?k" class="simple-table-header-color simple-table-header" style="width:248px">Le nombre d’adhésions fournisseurs n’atteint pas le niveau escompté</th><td id="G@t@" class="" style="width:52px">R6</td><td id="Kqfu" class="" style="width:75px">3</td><td id="lkM\" class="" style="width:95px">3</td><td id="&lt;qSk" class="">9</td><td id="gH}Z" class="">High</td><td id="H\uz" class="" style="width:239px">Démarchage et prospection continues sur les territoires pour engager de nouveaux fournisseurs</td><td id="nHUg" class="">CEO</td></tr></tbody></table></div><div><h2 id="2178d4bf-6d20-4553-9d4c-a4f07635201a" class=""><strong>Hypothèses</strong></h2><p id="ef3ce971-a391-4198-a6f4-94543f73ca87" class="">Le tableau ci-dessous résume les hypothèses formulées et décidée pour cette Déclaration de travail d’architecture :</p><table id="b0be4119-de3e-4e13-9a96-f5d4f935408a" class="simple-table"><thead class="simple-table-header"><tr id="d86023b7-707a-4c1d-8734-599a8f8a909e"><th id="G@t@" class="block-color-teal_background simple-table-header">ID</th><th id="lV?k" class="block-color-teal_background simple-table-header" style="width:497px">Hypothèse</th><th id="Kqfu" class="block-color-teal_background simple-table-header">Impact</th><th id="lkM\" class="block-color-teal_background simple-table-header">Propriétaire</th></tr></thead><tbody><tr id="62760c9c-8209-4901-8cdd-75cbb0bb19d4"><th id="G@t@" class="simple-table-header-color simple-table-header">1</th><td id="lV?k" class="" style="width:497px">Aucune nouvelle fonctionnalité ne sera développée dans la plateforme existante. Elle sera conservée en mode “Maintenance”</td><td id="Kqfu" class="">Elevé</td><td id="lkM\" class="">CIO</td></tr><tr id="827cab14-17cf-4691-a169-dd8430235b40"><th id="G@t@" class="simple-table-header-color simple-table-header">2</th><td id="lV?k" class="" style="width:497px">La nouvelle architecture sera construite en fonction des technologies actuelles.</td><td id="Kqfu" class="">Modéré</td><td id="lkM\" class="">CIO</td></tr><tr id="c00dad91-2c8f-4efd-be07-5d5c05d0eb65"><th id="G@t@" class="simple-table-header-color simple-table-header">3</th><td id="lV?k" class="" style="width:497px">L’architecture doit permettre d’obtenir le meilleur rapport Qualité-Coût</td><td id="Kqfu" class="">Modéré</td><td id="lkM\" class="">CIO</td></tr><tr id="6b3b36d1-76bb-4e8f-8c1c-3ad662c7c50e"><th id="G@t@" class="simple-table-header-color simple-table-header">4</th><td id="lV?k" class="" style="width:497px">L’architecture peut inclure de nouveaux composants personnalisés ou des composants du commerce pour favoriser la flexibilité, la stabilité et l’extensibilité.</td><td id="Kqfu" class="">Faible</td><td id="lkM\" class="">CIO</td></tr><tr id="08e75e90-d2fa-4940-9acb-c0f2b3497581"><th id="G@t@" class="simple-table-header-color simple-table-header">5</th><td id="lV?k" class="" style="width:497px">Les solutions open-source sont préférables aux solutions payantes</td><td id="Kqfu" class="">Faible</td><td id="lkM\" class="">CIO</td></tr><tr id="9364724a-0ca0-4669-ae7f-fdba79a401c6"><th id="G@t@" class="simple-table-header-color simple-table-header">6</th><td id="lV?k" class="" style="width:497px">L&#x27;offre initiale impliquera la coexistence de deux plateformes et la montée en puissance empirique du volume d&#x27;utilisateurs qui migreront vers la nouvelle plateforme à mesure que le produit évoluera. Cette augmentation sera proportionnelle à l&#x27;évolution des fonctionnalités</td><td id="Kqfu" class="">Elevé</td><td id="lkM\" class="">CPO</td></tr><tr id="3d84fb47-6410-4168-b3b2-29d090576e2f"><th id="G@t@" class="simple-table-header-color simple-table-header">7</th><td id="lV?k" class="" style="width:497px">La géolocalisation, si elle est modélisée suffisamment tôt dans la nouvelle plateforme, permettra d&#x27;introduire d&#x27;autres innovations en fonction de l&#x27;emplacement de l&#x27;utilisateur ou du fournisseur alimentaire.</td><td id="Kqfu" class="">Modéré </td><td id="lkM\" class="">CPO</td></tr></tbody></table></div><div><h2 id="0924be3d-8ccd-419b-8480-1ef7d1060ae6" class=""><strong>Critères d’acceptation et procédures</strong></h2><h3 id="0914fb32-e5e3-441a-b400-683755b3e1ed" class="">Métriques et KPI de l’État Cible de l’Architecture</h3><p id="f29c191a-adec-4399-af12-fcf4ed476411" class="">Les métriques suivantes seront utilisées pour déterminer le succès de ce travail d’architecture :</p><table id="1254c33b-f7d9-406a-92d2-2cc41efe2bef" class="simple-table"><thead class="simple-table-header"><tr id="73565c94-777e-4daf-be1e-b1ae3fabc914"><th id="pUtd" class="block-color-teal_background simple-table-header" style="width:187px">Métrique</th><th id="JTfM" class="block-color-teal_background simple-table-header" style="width:138px">Technique de mesure</th><th id="^SGp" class="block-color-teal_background simple-table-header" style="width:176px">Valeur cible</th><th id="&gt;BGR" class="block-color-teal_background simple-table-header" style="width:262px">Justification</th></tr></thead><tbody><tr id="d698d0cf-9729-4a36-b284-ed486fb511fb"><th id="pUtd" class="simple-table-header-color simple-table-header" style="width:187px">Nombre d&#x27;adhésions d&#x27;utilisateurs par jour</th><td id="JTfM" class="" style="width:138px">Nombre d’inscription journalière à la plateforme </td><td id="^SGp" class="" style="width:176px"><strong>Augmentation de 10%</strong></td><td id="&gt;BGR" class="" style="width:262px">La nouvelle architecture doit accompagner la croissance de l’entreprise, notamment en augmentant le nombre d’adhésion quotidien.</td></tr><tr id="8c3467d5-9ac2-47f6-8663-4177e60e3667"><th id="pUtd" class="simple-table-header-color simple-table-header" style="width:187px">Adhésion de producteurs alimentaires</th><td id="JTfM" class="" style="width:138px">Nombre d’inscription à la plateforme</td><td id="^SGp" class="" style="width:176px"><strong>4 adhésion / mois</strong></td><td id="&gt;BGR" class="" style="width:262px">Actuellement de 1,5/mois, nous souhaitons accélérer l’adhésion de nouveaux fournisseurs</td></tr><tr id="febd5c5c-3201-41b5-b981-2c9594c96efe"><th id="pUtd" class="simple-table-header-color simple-table-header" style="width:187px">Délai moyen de livraison en production</th><td id="JTfM" class="" style="width:138px">Temps entre chaque nouveau déploiement</td><td id="^SGp" class="" style="width:176px"><strong>Moins d’une semaine </strong></td><td id="&gt;BGR" class="" style="width:262px">Actuellement à 3,5 semaines. Nous souhaitons livrer plus rapidement de petits incréments dans notre plateforme.</td></tr><tr id="9d626fc8-c23b-476c-954c-d498d3831a04"><th id="pUtd" class="simple-table-header-color simple-table-header" style="width:187px">Taux d’incident en production </th><td id="JTfM" class="" style="width:138px">Nombre d’incidents avérés en production sur 1 mois</td><td id="^SGp" class="" style="width:176px"><strong>Inférieur à 1/mois</strong></td><td id="&gt;BGR" class="" style="width:262px">Actuellement à plus de 25/mois, le taux d’incidence en production a une conséquence sur notre chiffre d’affaire.</td></tr></tbody></table></div><h3 id="29c1406a-154a-42d6-bca4-2a71cb221dcf" class=""><strong>Procédure d’acceptation</strong></h3><ol type="1" id="d1fac1eb-9ecb-40cf-8922-6f9e37bf38cf" class="numbered-list" start="1"><li>Lorsque la Déclaration de travail d’architecture est terminée et validée par l’architecte référent, le livrable est présentée aux membres de la direction pour acceptation des travaux. </li></ol><ol type="1" id="9b75062b-1cb3-4357-a208-f9b6d763c23f" class="numbered-list" start="2"><li>Il est alors possible de formuler des retours &amp; améliorations avant acceptation finale et signature. Si des changements sont demandés, la finalisation du livrable est rallongée le temps nécessaire à la prise en compte des retours, et refait l’objet d’une présentation auprès de la direction pour acceptation.</li></ol><ol type="1" id="b0da0292-cd24-4760-8b8f-d7410a579db9" class="numbered-list" start="3"><li>Une fois que tous les membres de la direction ont validé la Déclaration de travail d’architecture, le document est alors transmis et signé par chaque partie.</li></ol><h2 id="57b6ca92-19a5-4354-a45b-95098757414e" class=""><strong>Approbations signées</strong></h2><table id="4a893a0a-8a9e-4619-8a0d-5614e2c1269e" class="simple-table"><thead class="simple-table-header"><tr id="34fc5fff-e6d5-40a2-9db3-7e4374f61776"><th id="`XXY" class="simple-table-header-color simple-table-header">Validateur</th><th id=":^dm" class="simple-table-header-color simple-table-header">Domaine de responsabilité</th><th id="K_Dx" class="simple-table-header-color simple-table-header">Date de signature</th></tr></thead><tbody><tr id="73c6cc2d-f374-4b3c-9cc9-f7f5557692c2"><td id="`XXY" class=""></td><td id=":^dm" class=""></td><td id="K_Dx" class=""></td></tr><tr id="c4761f7d-e3d7-4f86-878f-bd0aedc94058"><td id="`XXY" class=""></td><td id=":^dm" class=""></td><td id="K_Dx" class=""></td></tr></tbody></table></div></article></body></html>
